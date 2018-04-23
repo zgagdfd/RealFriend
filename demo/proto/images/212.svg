@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="34px" viewBox="0 0 175 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>Bubble</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="iOS-11-Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Files-Copy-3" transform="translate(-11.000000, -230.000000)" fill="#E5E6EA">
+            <g id="Messages" transform="translate(11.000000, 135.000000)">
+                <g id="Bubble-#4" transform="translate(0.000000, 71.000000)">
+                    <path d="M11.8751627,54.6586773 C14.7029224,56.7580569 18.2057997,58 22.0001085,58 L157.999891,58 C167.388792,58 175,50.3909051 175,41 C175,31.6111593 167.392954,24 157.999891,24 L22.0001085,24 C12.6112078,24 5,31.6090949 5,41 C5,41.012047 5.00001252,41.024091 5.00003756,41.0361321 C4.97049666,41.0122801 4.95506801,41 4.95506801,41 C4.95506801,41 5.25400087,48.5529346 4.61737463,52.1319246 C3.98074839,55.7109147 0.160548426,57.7604661 0.160548426,57.7604661 C-0.0755890354,57.9019489 -0.0487847775,58.0146713 0.224748459,58.0069369 C0.224748459,58.0069369 6.42842831,58.0851945 11.8751627,54.6586773 Z" id="Bubble"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
