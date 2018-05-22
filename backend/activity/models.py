@@ -38,3 +38,17 @@ class Activity(models.Model):
     end_time = models.DateTimeField()
     # 发起活动的时间
     create_time = models.DateTimeField(default=now)
+
+
+class Comment(models.Model):
+    # 评论所属的活动
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE,
+                                 related_name='comments')
+    # 评论用户昵称
+    nickname = models.CharField(max_length=16)
+    # 评论用户名
+    username = models.CharField(max_length=16)
+    # 评论内容
+    content = models.CharField(max_length=140)
+    # 评论时间
+    create_time = models.DateTimeField(default=now)

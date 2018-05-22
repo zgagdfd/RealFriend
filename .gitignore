@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
-### IDE realted files
+### IDE related files
 .idea/
+static/
 
 ### Python template
 # Byte-compiled / optimized / DLL files
