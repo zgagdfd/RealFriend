@@ -51,8 +51,8 @@ def follow(request, username, friend):
                         nickname=to_user.nickname, gender=to_user.gender,
                         avatar=to_user.avatar, signature=to_user.signature)
     followee.save()
-    message = {'status': 'success'}
-    return HttpResponse(json.dumps(message), content_type='application/json')
+    response = {'status': 'success'}
+    return HttpResponse(json.dumps(response), content_type='application/json')
 
 
 class FriendshipDetail(generics.RetrieveUpdateAPIView):

@@ -7,7 +7,7 @@ from .serializers import ActivitySerializer, CommentSerializer
 
 
 class ActivityList(generics.ListAPIView):
-    queryset = Activity.objects.all()
+    queryset = Activity.objects.all().order_by('create_time')[::-1]
     serializer_class = ActivitySerializer
 
 
@@ -28,8 +28,8 @@ def comment(request, activity_id):
         username=request.POST['username'],
         content=request.POST['content']
     )
-    message = {'status': 'success', 'comment_id': cmt.id}
-    return HttpResponse(json.dumps(message), content_type='application/json')
+    response = {'status': 'success', 'comment_id': cmt.id}
+    return HttpResponse(json.dumps(response), content_type='application/json')
 
 
 class CommentList(generics.ListAPIView):

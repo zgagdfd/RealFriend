@@ -21,5 +21,5 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('activity/', include('activity.urls')),
     # path('game/', include('game.urls')),
-    # path('message/', include('message.urls')),
+    path('message/', include('message.urls')),
 ]
