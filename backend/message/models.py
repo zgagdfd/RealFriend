@@ -14,7 +14,7 @@ class Message(models.Model):
     # 消息类型
     type = models.CharField(choices=type_choices, max_length=16)
     # 消息接收者，如果为null则表示对所有人发送的消息
-    receivers = models.ManyToManyField(User, related_name='messages', null=True)
+    receivers = models.ManyToManyField(User, related_name='messages')
     # 消息标题
     title = models.CharField(max_length=36)
     # 消息优先级

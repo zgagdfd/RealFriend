@@ -1,4 +1,3 @@
-from django.db.models import Q
 from django.http import HttpResponse
 from rest_framework import generics
 from rest_framework.utils import json
@@ -20,6 +19,12 @@ class MessageList(generics.ListAPIView):
                       [message for message in Message.objects.filter(receivers=None)]
         else: results = Message.objects.all()
         return results
+
+
+class MessageDetail(generics.RetrieveUpdateAPIView):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+    lookup_field = 'pk'
 
 
 class MessageCreate(generics.CreateAPIView):
