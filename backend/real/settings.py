@@ -25,7 +25,7 @@ SECRET_KEY = '2fb5ffh%)pm(5!yz6es1vop0-%-cpqrzw*ut&k2r02r)7mfx#v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '116.85.20.132']
+ALLOWED_HOSTS = ['localhost', '116.85.20.132', '139.219.4.146', 'real.chinanorth.cloudapp.chinacloudapi.cn']
 
 
 # Application definition
