@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'game.apps.GameConfig',
     'message.apps.MessageConfig',
     'merchant.apps.MerchantConfig',
-    'mod_wsgi.server',
 ]
 
 MIDDLEWARE = [
