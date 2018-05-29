@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_swagger.views import get_swagger_view
 
+from .views import get_token
+
 doc_view = get_swagger_view(title='RealFriend')
 
 urlpatterns = [
@@ -29,4 +31,5 @@ urlpatterns = [
     path('message/', include('message.urls')),
     path('merchant/', include('merchant.urls')),
     path('', doc_view),
+    path('token', get_token),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
