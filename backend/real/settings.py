@@ -98,7 +98,8 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'ACMore*123',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3306',
+        'TEST': {'CHARSET': 'utf8mb4'},
     }
 }
 
@@ -125,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 
 TIME_ZONE = 'UTC'
 

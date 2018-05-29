@@ -5,7 +5,7 @@ from rest_framework.authtoken.models import Token
 
 
 def get_token(request):
-    username, password = request.GET['username'], request.GET['password']
+    username, password = request.POST['username'], request.POST['password']
     user = authenticate(username=username, password=password)
     if not user: return HttpResponse('user is not exists', status=404)
     token, _ = Token.objects.get_or_create(user=user)
