@@ -18,6 +18,7 @@ class UserDetail(generics.RetrieveUpdateAPIView):
     lookup_field = 'username'
 
 
+# TODO：用户创建没有密码，以及没有登录操作
 class UserCreate(generics.CreateAPIView):
     serializer_class = UserSerializer
 
@@ -54,6 +55,8 @@ def follow(request, username, friend):
     response = {'status': 'success'}
     return HttpResponse(json.dumps(response), content_type='application/json')
 
+
+# TODO: 用户好友度实体的创建
 
 class FriendshipDetail(generics.RetrieveUpdateAPIView):
     serializer_class = FriendShipSerializer
