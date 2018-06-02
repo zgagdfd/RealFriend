@@ -8,9 +8,8 @@ from .models import User, Friendship, Follower, Followee
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'nickname', 'gender', 'email', 'phone',
-                  'avatar', 'signature', 'info', 'create_time', 'followees',
-                  'followers')
+        fields = ('id', 'username', 'passwd', 'nickname', 'gender', 'email', 'phone',
+                  'avatar', 'signature', 'info', 'create_time', 'followees', 'followers')
 
 
 class FollowerSerializer(serializers.ModelSerializer):
