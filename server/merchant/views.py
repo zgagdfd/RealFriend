@@ -11,7 +11,7 @@ class MerchantList(generics.ListAPIView):
     serializer_class = MerchantSerializer
 
 
-class MerchantDetail(generics.RetrieveUpdateAPIView):
+class MerchantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Merchant.objects.all()
     serializer_class = MerchantSerializer
     lookup_field = 'pk'

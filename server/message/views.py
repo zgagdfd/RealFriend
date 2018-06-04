@@ -21,7 +21,7 @@ class MessageList(generics.ListAPIView):
         return results
 
 
-class MessageDetail(generics.RetrieveUpdateAPIView):
+class MessageDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
     lookup_field = 'pk'

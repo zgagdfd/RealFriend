@@ -11,7 +11,7 @@ class GameList(generics.ListAPIView):
     serializer_class = GameSerializer
 
 
-class GameDetail(generics.RetrieveUpdateAPIView):
+class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
     lookup_field = 'pk'

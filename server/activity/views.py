@@ -11,7 +11,7 @@ class ActivityList(generics.ListAPIView):
     serializer_class = ActivitySerializer
 
 
-class ActivityDetail(generics.RetrieveUpdateAPIView):
+class ActivityDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
     lookup_field = 'pk'

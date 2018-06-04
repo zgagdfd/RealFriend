@@ -7,7 +7,7 @@ gender_choices = (('boy', '男'), ('girl', '女'))
 
 class User(models.Model):
     # 用户名
-    username = models.CharField(max_length=16)
+    username = models.CharField(max_length=16, unique=True)
     # 密码SHA256结果
     passwd = models.CharField(max_length=64)
     # 用户昵称
@@ -15,9 +15,9 @@ class User(models.Model):
     # 用户性别
     gender = models.CharField(choices=gender_choices, max_length=8)
     # 用户电子邮箱
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     # 用户手机号码
-    phone = models.CharField(max_length=11)
+    phone = models.CharField(max_length=11, unique=True)
     # 用户头像链接
     avatar = models.URLField()
     # 用户签名

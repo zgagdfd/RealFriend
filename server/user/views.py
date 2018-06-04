@@ -12,13 +12,13 @@ class UserList(generics.ListAPIView):
     serializer_class = UserSerializer
 
 
-class UserDetail(generics.RetrieveUpdateAPIView):
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_field = 'username'
 
 
-# TODO：用户创建没有密码，以及没有登录操作
+# TODO：用户创建没有登录操作
 class UserCreate(generics.CreateAPIView):
     serializer_class = UserSerializer
 
@@ -58,7 +58,7 @@ def follow(request, username, friend):
 
 # TODO: 用户好友度实体的创建
 
-class FriendshipDetail(generics.RetrieveUpdateAPIView):
+class FriendshipDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = FriendShipSerializer
 
     def get_object(self):
