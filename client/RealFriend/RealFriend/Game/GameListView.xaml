@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.GameListView">
+  <ContentView.Content>
+        <ListView
+          x:Name="gameListView"
+          SeparatorVisibility="None">
+            <!-- 声明列表视图中每一行的高度，而且适配平台 -->
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32"
+                            iOS="130"
+                            Android="110" />
+            </ListView.RowHeight>
+
+            <!-- 定制样式 -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView Padding="5">
+                            <Frame Padding="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image
+                                        Source="{Binding GameImageSource}" 
+                                        WidthRequest="80"
+                                        Aspect="Fill"/>
+                                    <StackLayout Margin="5">
+                                        <Label
+                                            Text="{Binding GameName}"
+                                            FontSize="22"
+                                            FontAttributes="Bold"
+                                            VerticalOptions="StartAndExpand"/>
+                                        <Label
+                                            Text="{Binding GameDesc}"
+                                            FontSize="13"
+                                            TextColor="DarkGray"
+                                            VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+
+                                    <Button
+                                        x:Name="JoinGameBtn"
+                                        Clicked="JoinGameBtnClicked"
+                                        Text="加入游戏"
+                                        FontSize="15"
+                                        HorizontalOptions="EndAndExpand"
+                                        VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentView.Content>
+</ContentView>

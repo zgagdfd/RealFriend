@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:RealFriend;assembly=RealFriend"
+            x:Class="RealFriend.HomePage">
+    <ContentPage
+        Title="热门活动">
+        <ContentPage.Content>
+            <StackLayout
+                Orientation="Vertical">
+                <local:ActivityListView/>
+                <local:TabbedView
+                    VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage
+        Title="热门互动">
+        <ContentPage.Content>
+            <StackLayout
+                Orientation="Vertical">
+                <local:GameListView/>
+                <local:TabbedView
+                    VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

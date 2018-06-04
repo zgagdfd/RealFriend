@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.ActivityDetail">
+    <ContentPage.Content>
+        <ScrollView
+            x:Name="activityD"
+            Orientation="Vertical">
+            <StackLayout
+                Spacing="10"
+                Margin="20,10"
+                BackgroundColor="#f7f7f7">
+                <Button
+                    HeightRequest="40" 
+                    TextColor="Gray" 
+                    Text="返回>"
+                    HorizontalOptions="Start"/>
+
+                <Image
+                    x:Name="topImg"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+
+                <Label
+                    x:Name="topTitle"
+                    FontSize="25"
+                    HorizontalOptions="Center"/>
+                <Label
+                    x:Name="topTime"
+                    FontSize="18"
+                    HorizontalOptions="Center"/>
+
+                <StackLayout
+                    Spacing="10"
+                    Orientation="Horizontal"
+                    Margin="0,30">
+                    <Image
+                        x:Name="initiatorImg"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        HorizontalOptions="Center"/>
+
+                    <StackLayout Spacing="15">
+                        <Label 
+                            Text="发起者"
+                            TextColor="Gray"
+                            FontSize="23"
+                            HorizontalOptions="Start"/>
+                        <Label 
+                            x:Name="personName"
+                            HorizontalOptions="Start"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label
+                    Text="活动参与人"
+                    FontSize="23"
+                    TextColor="Gray"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+
+                <StackLayout
+                    Spacing="10"
+                    Orientation="Horizontal">
+                    <Image
+                        x:Name="person1"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        HorizontalOptions="Start"/>
+
+                    <Image
+                        x:Name="person2"
+                        HeightRequest="60"
+                        WidthRequest="60"/>
+
+                    <Image
+                        x:Name="person3"
+                        HeightRequest="60"
+                        WidthRequest="60"/>
+
+                    <Image
+                        x:Name="person4"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        HorizontalOptions="End"/>
+                </StackLayout>
+
+                <StackLayout
+                    Spacing="10"
+                    Margin="0,30">
+                    <Label
+                        Text="活动详情"
+                        TextColor="Gray"
+                        FontSize="23"
+                        HorizontalOptions="Start"/>
+                    <Label
+                        x:Name="activityDesc"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image
+                            x:Name="view1"
+                            WidthRequest="130"
+                            HeightRequest="100"
+                            HorizontalOptions="Start"/>
+
+                        <Image
+                            x:Name="view2"
+                            WidthRequest="130"
+                            HeightRequest="100"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout
+                    Spacing="10"
+                    Margin="0,30">
+                    <Label
+                        Text="地点"
+                        FontSize="23"
+                        TextColor="Gray"/>
+                    <Label
+                        x:Name="location"/>
+                </StackLayout>
+
+                <StackLayout
+                    Spacing="10"
+                    Margin="0,30">
+                    <Label
+                        Text="商家"
+                        FontSize="23"
+                        TextColor="Gray"/>
+                    <Label
+                        x:Name="store"/>
+                </StackLayout>
+
+                <StackLayout
+                    Spacing="10"
+                    Margin="0,30">
+                    <Label
+                        Text="评论"
+                        FontSize="23"
+                        TextColor="Gray"/>
+                    <Entry
+                        x:Name="comment1"
+                        HeightRequest="40"
+                        HorizontalOptions="FillAndExpand"/>
+                    <Entry
+                        x:Name="comment2"
+                        HeightRequest="40"
+                        HorizontalOptions="FillAndExpand"/>
+                    <Entry
+                        x:Name="comment3"
+                        HeightRequest="40"
+                        HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout
+                        Spacing="10"
+                        Margin="0,80">
+                    <SearchBar
+                            Text="请输入评论"
+                            TextColor="Gray"
+                            HeightRequest="40"
+                            HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

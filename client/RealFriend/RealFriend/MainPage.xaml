@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RealFriend;assembly=RealFriend"
+             x:Class="RealFriend.MainPage">
+    <StackLayout
+        Orientation="Vertical"
+        HeightRequest="100">
+        <local:TabbedView
+            VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+</ContentPage>

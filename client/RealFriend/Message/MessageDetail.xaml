@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.MessageDetail">
+    <ContentPage.Content>
+        <ListView x:Name="messageDetailList"
+          SeparatorVisibility="None"
+                  Header="系统通知">
+            <ListView.RowHeight>
+                80
+            </ListView.RowHeight>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView>
+                            <Frame
+                                Padding="5"
+                                HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout>
+                                        <Label
+                                            Text="{Binding Msg}"
+                                            FontSize="17"
+                                            Margin="5,6"
+                                            BackgroundColor="Silver"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.Register">
+    <ContentPage.Content>
+        <StackLayout 
+            HorizontalOptions="Center">
+
+            <StackLayout 
+                x:Name="PhoneStackLayout"
+                Orientation="Vertical"
+                IsVisible="True"
+                Spacing="10">
+
+                <StackLayout x:Name="PosLayout"
+                             Orientation="Vertical">
+                    <Label/>
+                    <Label/>
+                    <Label/>
+                    <Label/>
+                    <Label/>
+                </StackLayout>
+
+
+                <Label 
+                    Text="注         册"
+                    HorizontalOptions="Center"
+                    FontSize="36"/>
+
+                <Label/>
+
+                <Label 
+                    Text="手机注册登录有助于您快速找到好友" 
+                    FontSize="12" 
+                    HorizontalOptions="Center"/>
+
+
+                <Entry 
+                    x:Name="PhoneNumEntry"
+                    Placeholder="请输入11位手机号码" 
+                    TextChanged="CheckPhoneNum"
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"/>
+
+                <StackLayout 
+                    x:Name="VeriCodeStackLayout" 
+                    Orientation="Horizontal"
+                    IsVisible="False">
+
+                    <Entry 
+                        x:Name="VerificationCodeEntry" 
+                        Placeholder="输入4位验证码"
+                        WidthRequest="140"
+                        IsEnabled="False"
+                        Keyboard="Numeric"/>
+
+                    <Button 
+                        x:Name="SendCodeBtn"
+                        Text="发送验证码"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="SendCodeBtnClicked"
+                        IsEnabled="False"/>
+
+                </StackLayout>
+
+                <StackLayout 
+                    Orientation="Horizontal">
+
+                    <Button 
+                        x:Name="NextBtn"
+                        Text="下一步"
+                        FontSize="18"
+                        Clicked="NextBtnClicked"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="5"
+                        IsVisible="False"/>
+
+                    <Button 
+                        x:Name="CancelRegisterBtn"
+                        Text="取  消"
+                        FontSize="18"
+                        Clicked="CancelRegisterBtnClicked"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="5"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+            <StackLayout
+                x:Name="InfoStackLayout"
+                Orientation="Vertical"
+                IsVisible="False"
+                Spacing="10">
+
+                <StackLayout x:Name="PosLayout1"
+                         Orientation="Vertical">
+
+                    <Label/>
+                    <Label/>
+                </StackLayout>
+
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label 
+                        Text=" 用 户 名  "
+                        FontSize="18"
+                        VerticalOptions="Center"/>
+                    <Entry 
+                        x:Name="UserName"  
+                        Keyboard="Text"
+                        WidthRequest="230"/>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label Text=" 密      码  "
+                           VerticalOptions="Center"
+                           FontSize="18"/>
+                    <Entry 
+                        x:Name="Password" 
+                        IsPassword="True"
+                        HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label Text=" 昵      称  "
+                           VerticalOptions="Center"
+                           FontSize="18"/>
+                    <Entry 
+                        x:Name="NickName" 
+                        HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label Text=" 性      别  "
+                           FontSize="18"
+                           VerticalOptions="Center"/>
+
+                    <Picker x:Name="Gender"
+                            Title="选择性别"
+                            HorizontalOptions="FillAndExpand">
+
+                        <Picker.Items>
+                            <x:String>男</x:String>
+                            <x:String>女</x:String>
+                        </Picker.Items>
+
+                        <Picker.SelectedIndex>
+                            0
+                        </Picker.SelectedIndex>
+                    </Picker>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label Text=" 邮      箱  "
+                           FontSize="18"
+                           VerticalOptions="Center"/>
+                    <Entry 
+                        x:Name="Email"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Email"/>
+                </StackLayout>
+
+
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label Text=" 头      像  "
+                           FontSize="18"
+                           VerticalOptions="Center"/>
+                    <Entry 
+                        x:Name="Avatar" 
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="URL"
+                        Keyboard="Url"/>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal">
+
+                    <Label Text=" 签      名  "
+                           FontSize="18"
+                           VerticalOptions="Center"/>
+
+                    <Editor 
+                        x:Name="Signature" 
+                        Keyboard="Chat"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="80"/>
+                </StackLayout>
+
+                <Label/>
+
+                <Button Clicked="RegisterBtnClicked"
+                        Text="注    册"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

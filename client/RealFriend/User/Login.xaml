@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.Login">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="Center">
+
+            <Label
+                Text="登           录"
+                HorizontalOptions="Center" 
+                FontSize="36" VerticalOptions="Start" 
+                Margin="20"/>
+
+            <StackLayout 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand" >
+                <Label 
+                    Text="账        号" 
+                    VerticalOptions="Center"
+                    Margin="15"
+                    FontSize="18"/>
+                <Entry
+                    x:Name="AccountEntry" 
+                    Placeholder="Username"
+                    TextChanged="CheckEmpty"
+                    WidthRequest="230"/>
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                HorizontalOptions="FillAndExpand">
+                <Label 
+                    Text="密        码"
+                    VerticalOptions="Center"
+                    FontSize="18"
+                    Margin="15"/>
+
+                <Entry 
+                    x:Name="PasswordEntry"
+                    Placeholder="Password"
+                    IsPassword="True"
+                    WidthRequest="230"
+                    TextChanged="CheckEmpty"/>
+
+            </StackLayout>
+
+            <Button 
+                x:Name="LoginBtn"
+                Text="登     录" 
+                FontSize="20"
+                HorizontalOptions="Fill"
+                IsEnabled="False"
+                Clicked="LoginBtnClicked"
+                WidthRequest="300"/>
+
+
+            <Label 
+                Text="Or" 
+                FontAttributes="Bold" 
+                FontSize="20" 
+                HorizontalOptions="Center"/>
+
+            <Label 
+                Text="其他登录方式" 
+                HorizontalOptions="Center"
+                TextColor="Blue"
+                Margin="10"/>
+
+            <StackLayout
+                Orientation="Horizontal" 
+                HorizontalOptions="Center">
+                <Label Text="QQ登录"/>
+                <Label Text="微信登录"/>
+                <Label Text="微博登录"/>
+            </StackLayout>
+
+            <Label/>
+            <Label/>
+
+            <StackLayout 
+                Orientation="Horizontal"  
+                Margin="20">
+
+                <Button 
+                    x:Name="ForgetPwdBtn" 
+                    Text="忘记密码" 
+                    HorizontalOptions="StartAndExpand" 
+                    WidthRequest="100"
+                    Clicked="ForgetPwdBtnClicked"/>
+
+                <Button  
+                    x:Name="RegisterBtn" 
+                    Text="创建账户" 
+                    HorizontalOptions="EndAndExpand"
+                    WidthRequest="100"
+                    Clicked="RegisterBtnClicked"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

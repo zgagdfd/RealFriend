@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.ActivityListView">
+  <ContentView.Content>
+        <ListView
+          x:Name="activityListView"
+          SeparatorVisibility="None">
+            <!-- 声明列表视图中每一行的高度，而且适配平台 -->
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32"
+                            iOS="140"
+                            Android="140" />
+            </ListView.RowHeight>
+
+            <!-- 定制样式 -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView Padding="0">
+                            <Frame
+                                OutlineColor="Accent"
+                                Padding="10">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}"
+                                               FontSize="25"
+                                               VerticalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Content}"
+                                               FontSize="20"
+                                               VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Time}"
+                                               FontSize="15"
+                                               VerticalOptions="EndAndExpand"/>
+                                    </StackLayout>
+
+                                    <BoxView x:Name="boxView"
+                                             Color="{Binding Color}"
+                                             HorizontalOptions="EndAndExpand"
+                                             VerticalOptions="CenterAndExpand"
+                                             WidthRequest="150"
+                                             HeightRequest="100"/>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentView.Content>
+</ContentView>

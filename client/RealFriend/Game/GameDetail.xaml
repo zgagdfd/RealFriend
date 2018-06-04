@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.GameDetail">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Image
+                x:Name="GameImage"
+                HeightRequest="150"
+                Aspect="Fill"/>
+
+            <StackLayout
+                Orientation="Vertical"
+                Spacing="10"
+                Padding="10">
+                <Label
+                    x:Name="GameName"
+                    HorizontalOptions="Start"
+                    TextColor="DarkGray"
+                    FontSize="17"/>
+
+                <Label
+                    x:Name="GameInfo"
+                    FontSize="19"/>
+
+
+                <Button
+                    x:Name="ShareNameBtn"
+                    Text="分享"
+                    Clicked="ShareGameBtnClicked"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"/>
+
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HeightRequest="70"
+                Padding="13">
+
+                <Image 
+                    x:Name="InitiatorImage"
+                    WidthRequest="70"
+                    Aspect="Fill"/>
+
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="5">
+                    <Label
+                        Text="发起者"
+                        FontSize="16"
+                        VerticalOptions="StartAndExpand"/>
+
+                    <Label
+                        x:Name="InitiatorName"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        VerticalOptions="CenterAndExpand"/>
+
+                </StackLayout>
+
+                <Button
+                    x:Name="StartGameBtn"
+                    Clicked="StartGameBtnClicked"
+                    Text="立即开始"
+                    FontSize="15"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand"/>
+
+
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Vertical" 
+                Spacing="10"
+                Padding="10">
+                <Label 
+                    Text="当前正在参与互动的"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+
+                <ScrollView Orientation="Horizontal" >
+                    <StackLayout 
+                        x:Name="PlayerLists"
+                        Orientation="Horizontal"
+                        Spacing="20"
+                        HeightRequest="70"
+                        Padding="10"
+                        HorizontalOptions="CenterAndExpand">
+
+
+                        <Image 
+                            x:Name="Player0"
+                            WidthRequest="70"/>
+                        <Image 
+                            x:Name="Player1"
+                            WidthRequest="70"/>
+
+                        <Image 
+                            x:Name="Player2"
+                            WidthRequest="70"/>
+                        <Image
+                            x:Name="Player3"
+                            WidthRequest="70"/>
+                        <Image
+                            x:Name="Player4"
+                            WidthRequest="70"/>
+                        <Image 
+                            x:Name="Player5"
+                            WidthRequest="70"/>
+
+                    </StackLayout>
+
+                </ScrollView>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

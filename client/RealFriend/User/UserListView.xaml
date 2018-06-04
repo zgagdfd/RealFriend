@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.UserListView">
+  <ContentView.Content>
+        <ListView
+          x:Name="friendlistView"
+          SeparatorVisibility="None">
+            <!-- 声明列表视图中每一行的高度，而且适配平台 -->
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32"
+                            iOS="80"
+                            Android="80" />
+            </ListView.RowHeight>
+
+            <!-- 定制样式 -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView>
+                            <Frame
+                                HasShadow="false"
+                                Padding="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image
+                                        WidthRequest="50"
+                                        Margin="10,4,5,4"
+                                        HeightRequest="50"
+                                        Source="{Binding ImageUrl}"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label
+                                            Text="{Binding Name}"   
+                                            FontSize="22"
+                                            VerticalOptions="StartAndExpand"/>
+                                        <Label
+                                            Text="(*^▽^*)近期发布了新活动…                           "
+                                            Margin="1,1,1,1"
+                                            FontSize="16"
+                                            VerticalOptions="StartAndExpand"/>
+                                    </StackLayout>
+                                    <Image 
+                                        WidthRequest="30"
+                                        Margin="10,4,5,4"
+                                        HeightRequest="30"
+                                        Source="{Binding ImageUrl2}"
+                                        VerticalOptions="EndAndExpand"></Image>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentView.Content>
+</ContentView>

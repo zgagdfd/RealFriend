@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.Register">
+    <ContentPage.Content>
+        <StackLayout 
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+            <Label 
+                Text="注           册"
+                HorizontalOptions="Center"
+                FontSize="36"
+                VerticalOptions="Start"
+                Margin="20"/>
+
+            <Label 
+                Text="手机注册登录有助于您快速找到好友" 
+                FontSize="12" 
+                HorizontalOptions="Center"
+                Margin="12"/>
+
+            <Entry 
+                x:Name="PhoneNumEntry"
+                Placeholder="输入11位手机号码" 
+                HorizontalOptions="FillAndExpand"
+                TextChanged="CheckPhoneNum"/>
+
+            <StackLayout 
+                x:Name="VeriCodeStackLayout" 
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                IsVisible="False">
+                <Entry 
+                    x:Name="VerificationCodeEntry" 
+                    Placeholder="输入4位验证码"
+                    TextChanged="CheckVeriCode" 
+                    WidthRequest="200"
+                    IsEnabled="False"/>
+
+                <Button 
+                    x:Name="SendCodeBtn"
+                    Text="发送验证码"
+                    WidthRequest="100"
+                    Clicked="SendCodeBtnClicked"
+                    IsEnabled="False"/>
+
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand">
+                <Button 
+                    x:Name="RegisterBtn"
+                    Text="注  册"
+                    FontSize="18"
+                    Clicked="RegisterBtnClicked"
+                    IsEnabled="False"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10"
+                    IsVisible="False"/>
+
+                <Button 
+                    x:Name="CancelRegisterBtn"
+                    Text="取  消"
+                    FontSize="18"
+                    Clicked="CancelRegisterBtnClicked"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="10"/>
+
+            </StackLayout>
+
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

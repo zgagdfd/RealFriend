@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.ActivityPublish">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#f7f7f7">
+            <StackLayout Orientation="Vertical"
+                Spacing="10"
+                Margin="15,30"
+                BackgroundColor="#f7f7f7">
+
+                <Entry x:Name="activityName"
+                     HeightRequest="40"
+                     HorizontalOptions="FillAndExpand"
+                     Text="活动名"
+                     TextColor="Gray"/>
+
+                <Entry x:Name="activityTime"
+                     HeightRequest="40"
+                     HorizontalOptions="FillAndExpand"
+                     Text="活动时间、地点"
+                     TextColor="Gray"/>
+
+                <Entry x:Name="activityDesc"
+                     HeightRequest="40"
+                     HorizontalOptions="FillAndExpand"
+                     Text="活动描述"
+                     TextColor="Gray"/>
+
+                <Button HeightRequest="40"
+                     Text="选择商家                                                                  >"
+                     TextColor="Gray"
+                     BackgroundColor="#f0f0f0"
+                     HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                Margin="30,0"
+                BackgroundColor="#f7f7f7"
+                Spacing="10">
+
+                <Entry HeightRequest="30"
+                     WidthRequest="85"
+                     VerticalOptions="Center"
+                     Text="邀请好友"
+                     TextColor="Gray"
+                     BackgroundColor="#f0f0f0"/>
+
+                <Image x:Name="image1"
+                     VerticalOptions="Center"
+                     HeightRequest="60"
+                     WidthRequest="60"/>
+
+                <Image x:Name="image2"
+                     VerticalOptions="Center"
+                     HeightRequest="60"
+                     WidthRequest="60"/>
+
+                <Entry HeightRequest="60"
+                     WidthRequest="60"
+                     VerticalOptions="Center"
+                     Text="   +"
+                     FontSize="23"
+                     TextColor="Gray"
+                     BackgroundColor="#f0f0f0"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                Spacing="10"
+                Margin="30"
+                HorizontalOptions="End"
+                BackgroundColor="#f7f7f7">
+                <Label Text="仅参与人可见"
+                     TextColor="Gray"
+                     VerticalOptions="Center"/>
+
+                <Switch
+                     HorizontalOptions="Center"
+                     VerticalOptions="End"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

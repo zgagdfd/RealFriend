@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.Setting">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                BorderRadius="70" 
+                HeightRequest="90" 
+                WidthRequest="90"
+                BackgroundColor="GreenYellow" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Start" 
+                Text="123"/>
+            <StackLayout
+                HeightRequest="100" 
+                VerticalOptions="Start" 
+                HorizontalOptions="FillAndExpand" 
+                Spacing="20">
+                <Label
+                    Text="点击更换头像" 
+                    FontSize="16" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label
+                    FontSize="18" 
+                    Text="昵称" 
+                    TextColor="White"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center" 
+                    WidthRequest="100" 
+                    Margin="10,5,5,5"/>
+                <Entry 
+                    HorizontalOptions="FillAndExpand" 
+                    Text="msky" 
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="18" 
+                    Text="ID" 
+                    TextColor="White"
+                    Margin="10,5,5,5"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    WidthRequest="100" />
+                <Entry 
+                    HorizontalOptions="FillAndExpand" 
+                    Text="12345678"
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="18" 
+                    Text="性别" 
+                    TextColor="White"
+                    Margin="10,5,5,5"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center" 
+                    WidthRequest="100"/>
+                <Entry 
+                    HorizontalOptions="FillAndExpand" 
+                    Text="女"
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="18"
+                    Text="生日" 
+                    TextColor="White" 
+                    Margin="10,5,5,5"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    WidthRequest="100"/>
+                <Entry 
+                    HorizontalOptions="FillAndExpand" 
+                    Text="点击选择出生日期" 
+                    TextColor="Gray" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="18" 
+                    Text="签名" 
+                    TextColor="White" 
+                    Margin="10,5,5,5"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center" 
+                    WidthRequest="100"/>
+                <Entry 
+                    HorizontalOptions="FillAndExpand"
+                    Text="不签！不签！不签！" 
+                    TextColor="Gray" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                    FontSize="18"
+                    Text="设置" 
+                    TextColor="White"
+                    Margin="10,5,5,5"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    WidthRequest="100"/>
+                <Entry 
+                    HorizontalOptions="EndAndExpand"
+                    Text="＞"
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout 
+                HeightRequest="100" 
+                VerticalOptions="Start" 
+                HorizontalOptions="FillAndExpand" 
+                Spacing="20">
+                <Label 
+                    Text="退出登录"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" 
+                    TextColor="White" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
