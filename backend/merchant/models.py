@@ -8,7 +8,7 @@ type_choices = (('food', '食品类'), ('movie', '电影类'),
 
 class Merchant(models.Model):
     # 商家名称
-    name = models.CharField(max_length=16)
+    name = models.CharField(max_length=16, unique=True)
     # 商家分类
     type = models.CharField(choices=type_choices, max_length=16)
     # 商家图片
