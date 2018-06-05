@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.Game.GamePublish">
+    <ContentPage.Content>
+        <StackLayout 
+            HorizontalOptions="Center" 
+            VerticalOptions="Center" 
+            Spacing="10">
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                HorizontalOptions="Fill" 
+                Spacing="10">
+
+                <Label Text="互  动  名" 
+                       VerticalOptions="Center"
+                       FontSize="18" />
+
+                <Entry x:Name="GameNameEntry" 
+                       Placeholder="Name"
+                       WidthRequest="230"/>
+
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                HorizontalOptions="FillAndExpand" 
+                Spacing="10">
+
+                <Label Text="密        码" 
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Entry x:Name="GamePassEntry" 
+                       IsPassword="True"
+                       Placeholder="Password(Not necessary)"
+                       HorizontalOptions="FillAndExpand"/>
+
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand"
+                Spacing="10">
+
+                <Label Text="开始时间" 
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <DatePicker x:Name="DatePicker"
+                           HorizontalOptions="FillAndExpand"/>
+
+                <TimePicker x:Name="TimePicker"
+                            HorizontalOptions="FillAndExpand"/>
+
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                Spacing="10">
+                <Label Text="互动类型" 
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Picker 
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="KindPicker"
+                    Title="选择互动类型"
+                    SelectedIndexChanged="OnPickerSelectedIndexChanged">
+
+                    <Picker.Items>
+                        <x:String>类型1</x:String>
+                        <x:String>类型2</x:String>
+                        <x:String>类型3</x:String>
+                        <x:String>类型4</x:String>
+                        <x:String>类型5</x:String>
+                        <x:String>类型6</x:String>
+                    </Picker.Items>
+
+                    <Picker.SelectedIndex>
+                        0
+                    </Picker.SelectedIndex>
+                </Picker>
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                Spacing="10">
+                <Label Text="互动简介" 
+                       VerticalOptions="Center"
+                       FontSize="18"/>
+
+                <Editor x:Name="GameInfoEntry" 
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="80"/>
+            </StackLayout>
+
+            <Label/>
+            <Label/>
+
+
+            <!--
+            邀请好友
+            -->
+
+            <Button x:Name="InitGameBtn"
+                    Text="发 起 互 动" 
+                    FontSize="20"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="InitGameBtnClicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
