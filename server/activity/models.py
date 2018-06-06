@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.timezone import now
-
 # noinspection PyUnresolvedReferences
 from user.models import User
-
+# noinspection PyUnresolvedReferences
+from merchant.models import Merchant
 
 type_choices = (('default', '自定义活动'), ('food', '吃吃喝喝'),
                 ('movie', '看电影'), ('game', '游戏'),
@@ -18,8 +18,9 @@ class Activity(models.Model):
                                   related_name='initiated_activities')
     # 活动的标题
     title = models.CharField(max_length=36)
-    # TODO: 活动涉及的商家
-    pass
+    # 活动涉及的商家
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE,
+                                 related_name='activities')
     # 活动的参与人员
     participants = models.ManyToManyField(User, related_name='participated_activities')
     # 活动是否对非相关用户可见

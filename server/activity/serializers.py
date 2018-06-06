@@ -8,8 +8,8 @@ from .models import Activity, Comment
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
-        fields = ('id', 'initiator', 'title', 'participants', 'is_private', 'type',
-                  'status', 'introduction', 'start_time', 'end_time', 'create_time')
+        fields = ('id', 'initiator', 'title', 'merchant', 'participants', 'is_private',
+                  'type', 'status', 'introduction', 'start_time', 'end_time', 'create_time')
 
 
 class CommentSerializer(serializers.ModelSerializer):

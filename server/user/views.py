@@ -18,9 +18,22 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'username'
 
 
-# TODO：用户创建没有登录操作
 class UserCreate(generics.CreateAPIView):
     serializer_class = UserSerializer
+
+
+def login(request):
+    # TODO: 验证密码哈希而非密码
+    username = request.POST['username']
+    passwd = request.POST['password']
+    user = User.objects.filter(username=username)
+    if user:
+        user = user[0]
+        if user.passwd == passwd:
+            response = {'status': 'success'}
+        else: response = {'status': 'password wrong'}
+    else: response = {'status': 'user not exists'}
+    return HttpResponse(json.dumps(response), content_type='application/json')
 
 
 class FollowerList(generics.ListAPIView):
@@ -56,8 +69,6 @@ def follow(request, username, friend):
     return HttpResponse(json.dumps(response), content_type='application/json')
 
 
-# TODO: 用户好友度实体的创建
-
 class FriendshipDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = FriendShipSerializer
 
@@ -66,4 +77,7 @@ class FriendshipDetail(generics.RetrieveUpdateDestroyAPIView):
         friend = self.kwargs['friend']
         results = Friendship.objects.filter(main_user__username=user) \
             .filter(sub_user__username=friend)
-        return results[0] if results else None
+        return Friendship.objects.create(
+            main_user=User.objects.get(username=user),
+            sub_user=User.objects.get(username=friend)) \
+            if not results else results[0]
