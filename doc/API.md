@@ -44,7 +44,7 @@
 | 获取用户的粉丝 | `/user/{username}/followers` | GET | 无 | 获取用户的粉丝（关注用户的人） |
 | 获取用户和另一位用户的友好度 | `/user/{username}/friendship/{friend_username}` | GET/UPDATE | 无 | 获取用户名为`username`的用户和用户名为`friend_username`的用户之间的友好度，并且可以通过这个接口来更新数值 |
 | 创建新用户 | `/user/create` | PUT | 具体参数见[后端地址][backend_url]，其中的`followers`/`followees`/`info`/`create_time`这四个字段不用填，后端会自动创建 | 这是用户注册时使用的接口，如果请求成功则说明用户注册成功，否则说明失败，具体的失败信息现在还没做 |
-| 登录验证（[后端地址][backend_url]没有） | TODO | TODO | TODO | TODO |
+| 登录验证（[后端地址][backend_url]没有） | `/user/login` | POST | {<br />`username`: 用户名,<br />`password`: 用户密码<br />}<br /><br />返回值是`{"status": "success"}`或`{"status": "password wrong"}`或`{"status": "user not exists"}` | 用户的登录验证，返回三种状态分别表示登录成功、用户密码错误以及用户不存在 |
 | 关注好友（[后端地址][backend_url]没有） | `/user/{username}/follow/{friend_username}` | 不限，最好是POST。如果成功，返回值是`{"status": "success"}`，否则直接抛出异常 | 无 | 用户名为`username`的用户关注用户名为`friend_username`的用户 |
 
 ## 2. Activity
