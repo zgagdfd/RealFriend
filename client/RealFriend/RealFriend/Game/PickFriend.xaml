@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealFriend.Game.PickFriend"
+             Title="选择好友">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical">
+
+            <ListView
+                x:Name="FriendListView"
+                RowHeight="70"
+                SeparatorVisibility="Default"
+                ItemSelected="OnSelection"
+                IsPullToRefreshEnabled="true"
+                Refreshing="OnRefresh"
+                ItemsSource="{Binding DataList}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Spacing="10"
+                                Orientation="Horizontal"
+                                Opacity="1.0">
+
+                                <Image
+                                    Margin="15,5,5,5"
+                                    Source="{Binding Data.Avatar}"
+                                    Aspect="Fill"
+                                    WidthRequest="60"
+                                    HeightRequest="60"
+                                    HorizontalOptions="Start"/>
+
+                                <Label 
+                                    Text="{Binding Data.UserID}"
+                                    VerticalOptions="Center"
+                                    FontSize="Medium"
+                                    IsVisible="False"/>
+
+                                <Label
+                                    Text="{Binding Data.UserName}"
+                                    VerticalOptions="Center"
+                                    FontSize="Medium"/>
+
+                                <Switch
+                                    Margin="0,0,15,0"
+                                    x:Name="SelectSwitch"
+                                    IsToggled="{Binding IsSelected}"
+                                    HorizontalOptions="EndAndExpand"
+                                    />
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

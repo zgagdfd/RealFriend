@@ -2,39 +2,47 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealFriend.GameListView">
-  <ContentView.Content>
+    <ContentView.Content>
         <ListView
-          x:Name="gameListView"
-          SeparatorVisibility="None">
+            x:Name="gameListView"
+            SeparatorVisibility="None"
+            ItemSelected="OnSelection"
+            IsPullToRefreshEnabled="true"
+            Refreshing="OnRefresh"
+            >
             <!-- 声明列表视图中每一行的高度，而且适配平台 -->
             <ListView.RowHeight>
                 <OnPlatform x:TypeArguments="x:Int32"
                             iOS="130"
-                            Android="110" />
+                            Android="100" />
             </ListView.RowHeight>
 
             <!-- 定制样式 -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ContentView Padding="5">
-                            <Frame Padding="10">
+                        <ContentView Padding="5"
+                                     InputTransparent="True">
+                            <Frame Padding="10"
+                                   OutlineColor="Accent">
                                 <StackLayout Orientation="Horizontal">
                                     <Image
-                                        Source="{Binding GameImageSource}" 
-                                        WidthRequest="80"
+                                        Source="{Binding GameImage}" 
+                                        WidthRequest="70"
+                                        HeightRequest="70"
                                         Aspect="Fill"/>
+
                                     <StackLayout Margin="5">
                                         <Label
                                             Text="{Binding GameName}"
-                                            FontSize="22"
+                                            FontSize="20"
                                             FontAttributes="Bold"
                                             VerticalOptions="StartAndExpand"/>
                                         <Label
-                                            Text="{Binding GameDesc}"
+                                            Text="{Binding GameInfo}"
                                             FontSize="13"
                                             TextColor="DarkGray"
-                                            VerticalOptions="CenterAndExpand"/>
+                                            VerticalOptions="Center"/>
                                     </StackLayout>
 
                                     <Button
@@ -43,7 +51,7 @@
                                         Text="加入游戏"
                                         FontSize="15"
                                         HorizontalOptions="EndAndExpand"
-                                        VerticalOptions="CenterAndExpand"/>
+                                        VerticalOptions="Center"/>
                                 </StackLayout>
                             </Frame>
                         </ContentView>

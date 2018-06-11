@@ -1,114 +1,159 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RealFriend.Game.GamePublish">
+             x:Class="RealFriend.Game.GamePublish"
+             xmlns:control="clr-namespace:HorizontalList;assembly=HorizontalList"
+             Title="发布互动">
     <ContentPage.Content>
         <StackLayout 
             HorizontalOptions="Center" 
-            VerticalOptions="Center" 
             Spacing="10">
 
-            <StackLayout 
-                Orientation="Horizontal" 
-                HorizontalOptions="Fill" 
-                Spacing="10">
-
-                <Label Text="互  动  名" 
-                       VerticalOptions="Center"
-                       FontSize="18" />
-
-                <Entry x:Name="GameNameEntry" 
-                       Placeholder="Name"
-                       WidthRequest="230"/>
-
+            <StackLayout>
+                <Label/>
             </StackLayout>
 
-            <StackLayout 
-                Orientation="Horizontal" 
-                HorizontalOptions="FillAndExpand" 
-                Spacing="10">
+            <!--活动信息-->
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="Center"
+                         Spacing="10">
 
-                <Label Text="密        码" 
-                       VerticalOptions="Center"
-                       FontSize="18"/>
+                <!--互动名-->
+                <StackLayout 
+                    Orientation="Horizontal" 
+                    HorizontalOptions="Fill" 
+                    Spacing="10">
 
-                <Entry x:Name="GamePassEntry" 
-                       IsPassword="True"
-                       Placeholder="Password(Not necessary)"
-                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="互  动  名" 
+                           VerticalOptions="Center"
+                           FontSize="18" />
 
-            </StackLayout>
+                    <Entry x:Name="GameNameEntry" 
+                           Placeholder="Name"
+                           WidthRequest="230"/>
 
-            <StackLayout 
-                Orientation="Horizontal"
-                HorizontalOptions="FillAndExpand"
-                Spacing="10">
+                </StackLayout>
 
-                <Label Text="开始时间" 
-                       VerticalOptions="Center"
-                       FontSize="18"/>
+                <!--密码-->
+                <StackLayout 
+                        Orientation="Horizontal" 
+                        HorizontalOptions="FillAndExpand" 
+                        Spacing="10">
 
-                <DatePicker x:Name="DatePicker"
-                           HorizontalOptions="FillAndExpand"/>
+                    <Label Text="密        码" 
+                           VerticalOptions="Center"
+                           FontSize="18"/>
 
-                <TimePicker x:Name="TimePicker"
-                            HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="GamePassEntry" 
+                           IsPassword="True"
+                           Placeholder="Password(Not necessary)"
+                           WidthRequest="230"/>
 
-            </StackLayout>
+                </StackLayout>
 
-            <StackLayout 
-                Orientation="Horizontal" 
-                Spacing="10">
-                <Label Text="互动类型" 
-                       VerticalOptions="Center"
-                       FontSize="18"/>
-
-                <Picker 
-                    HorizontalOptions="FillAndExpand"
-                    x:Name="KindPicker"
-                    Title="选择互动类型"
-                    SelectedIndexChanged="OnPickerSelectedIndexChanged">
-
-                    <Picker.Items>
-                        <x:String>类型1</x:String>
-                        <x:String>类型2</x:String>
-                        <x:String>类型3</x:String>
-                        <x:String>类型4</x:String>
-                        <x:String>类型5</x:String>
-                        <x:String>类型6</x:String>
-                    </Picker.Items>
-
-                    <Picker.SelectedIndex>
-                        0
-                    </Picker.SelectedIndex>
-                </Picker>
-            </StackLayout>
-
-            <StackLayout 
-                Orientation="Horizontal" 
-                Spacing="10">
-                <Label Text="互动简介" 
-                       VerticalOptions="Center"
-                       FontSize="18"/>
-
-                <Editor x:Name="GameInfoEntry" 
+                <!--开始时间-->
+                <StackLayout 
+                        Orientation="Horizontal"
                         HorizontalOptions="FillAndExpand"
-                        HeightRequest="80"/>
+                        Spacing="10">
+
+                    <Label Text="开始时间" 
+                           VerticalOptions="Center"
+                           FontSize="18"/>
+
+                    <DatePicker x:Name="DatePicker"
+                                WidthRequest="130"/>
+
+                    <TimePicker x:Name="TimePicker"
+                                WidthRequest="90"/>
+
+                </StackLayout>
+
+                <!--互动类型-->
+                <StackLayout 
+                        Orientation="Horizontal" 
+                        Spacing="10">
+
+                    <Label Text="互动类型" 
+                           VerticalOptions="Center"
+                           FontSize="18"/>
+
+                    <Picker
+                        WidthRequest="230"
+                        x:Name="KindPicker"
+                        Title="选择互动类型"
+                        SelectedIndexChanged="OnPickerSelectedIndexChanged">
+
+                        <Picker.Items>
+                            <x:String>室  内</x:String>
+                            <x:String>户  外</x:String>
+                            <x:String>纸  牌</x:String>
+                            <x:String>电  子</x:String>
+                            <x:String>其  它</x:String>
+                            <x:String></x:String>
+                        </Picker.Items>
+
+                        <Picker.SelectedIndex>
+                            0
+                        </Picker.SelectedIndex>
+                    </Picker>
+                </StackLayout>
+
+                <!--互动简介-->
+                <StackLayout 
+                    Orientation="Horizontal" 
+                    Spacing="10">
+                    <Label Text="互动简介" 
+                           VerticalOptions="Center"
+                           FontSize="18"/>
+                    <Editor x:Name="GameInfoEntry" 
+                            WidthRequest="230"
+                            HeightRequest="80"/>
+                </StackLayout>
             </StackLayout>
 
-            <Label/>
-            <Label/>
+            <!--邀请好友-->
+            <StackLayout Orientation="Horizontal"
+                         Spacing="10"
+                        
+                         Padding="10,0,0,10">
 
+                <Button Text="邀请好友"
+                        Command="{Binding SelectCommand}"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"/>
 
-            <!--
-            邀请好友
-            -->
+                <control:HorizontalList
+                    x:Name="FriendList"
+                    Spacing="10"
+                    ListOrientation="Horizontal" 
+                    ItemsSource="{Binding DataSource}"
+                    >
 
-            <Button x:Name="InitGameBtn"
-                    Text="发 起 互 动" 
-                    FontSize="20"
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="InitGameBtnClicked"/>
+                    <control:HorizontalList.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                WidthRequest="75"
+                                HeightRequest="75">
+                                <Image 
+                                    WidthRequest="60"
+                                    HeightRequest="60"
+                                    Source="{Binding Data.Avatar}"
+                                    VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </control:HorizontalList.ItemTemplate>
+                </control:HorizontalList>
+            </StackLayout>
+
+            <StackLayout>
+                <Button x:Name="InitGameBtn"
+                        Text="发 起 互 动" 
+                        FontSize="20"
+                        HorizontalOptions="FillAndExpand"
+                        Clicked="PublishGameBtnClicked"/>
+            </StackLayout>
+
 
         </StackLayout>
     </ContentPage.Content>
