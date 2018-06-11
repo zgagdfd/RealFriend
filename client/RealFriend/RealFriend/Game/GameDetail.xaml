@@ -1,47 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RealFriend.GameDetail">
+             x:Class="RealFriend.GameDetail"
+             xmlns:control="clr-namespace:HorizontalList;assembly=HorizontalList"
+             NavigationPage.HasBackButton="True"
+             Title="互动详情">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical"
+                     Spacing="10">
             <Image
-                x:Name="GameImage"
-                HeightRequest="150"
+                Source="{Binding GameImage}"
+                HeightRequest="180"
                 Aspect="Fill"/>
 
             <StackLayout
                 Orientation="Vertical"
                 Spacing="10"
-                Padding="10">
+                Padding="13,0,13,0">
                 <Label
-                    x:Name="GameName"
+                    Text="{Binding GameName}"
                     HorizontalOptions="Start"
                     TextColor="DarkGray"
-                    FontSize="17"/>
+                    FontSize="16"
+                    InputTransparent="True"/>
 
                 <Label
-                    x:Name="GameInfo"
+                    Text="{Binding GameInfo}"
                     FontSize="19"/>
 
-
                 <Button
-                    x:Name="ShareNameBtn"
-                    Text="分享"
+                    Text="分  享"
                     Clicked="ShareGameBtnClicked"
-                    FontSize="15"
-                    HorizontalOptions="EndAndExpand"/>
+                    FontSize="16"
+                    HorizontalOptions="EndAndExpand"
+                    />
 
             </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
                 HeightRequest="70"
-                Padding="13">
+                Padding="8,0,13,0">
 
-                <Image 
-                    x:Name="InitiatorImage"
-                    WidthRequest="70"
-                    Aspect="Fill"/>
+                <Grid
+                    Padding="5"
+                    WidthRequest="60">
+                    <Image
+                        Source="{Binding PublisherAvatar}"
+                        Aspect="Fill"/>
+                </Grid>
+
 
                 <StackLayout
                     Orientation="Vertical"
@@ -49,10 +57,9 @@
                     <Label
                         Text="发起者"
                         FontSize="16"
-                        VerticalOptions="StartAndExpand"/>
-
+                        VerticalOptions="CenterAndExpand"/>
                     <Label
-                        x:Name="InitiatorName"
+                        Text="{Binding PuiblisherUserName}"
                         FontSize="20"
                         FontAttributes="Bold"
                         VerticalOptions="CenterAndExpand"/>
@@ -60,58 +67,46 @@
                 </StackLayout>
 
                 <Button
-                    x:Name="StartGameBtn"
-                    Clicked="StartGameBtnClicked"
-                    Text="立即开始"
+                    Clicked="JoinGameBtnClicked"
+                    Text="立即加入"
                     FontSize="15"
-                    VerticalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
                     HorizontalOptions="EndAndExpand"/>
-
-
             </StackLayout>
 
             <StackLayout
                 Orientation="Vertical" 
                 Spacing="10"
-                Padding="10">
+                Padding="10,0,10,0"
+                Margin="0,5,0,0"
+                >
+
                 <Label 
                     Text="当前正在参与互动的"
                     FontSize="20"
                     FontAttributes="Bold"/>
 
-                <ScrollView Orientation="Horizontal" >
-                    <StackLayout 
-                        x:Name="PlayerLists"
-                        Orientation="Horizontal"
-                        Spacing="20"
-                        HeightRequest="70"
-                        Padding="10"
-                        HorizontalOptions="CenterAndExpand">
+                <control:HorizontalList
+                    ListOrientation="Horizontal" 
+                    Spacing="10"
+                    ItemsSource="{Binding PlayersList}"
+                    >
 
+                    <control:HorizontalList.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                WidthRequest="75"
+                                HeightRequest="75">
+                                <Image 
+                                    WidthRequest="60"
+                                    HeightRequest="60"
+                                    Source="{Binding Avatar}"
+                                    VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </control:HorizontalList.ItemTemplate>
+                </control:HorizontalList>
 
-                        <Image 
-                            x:Name="Player0"
-                            WidthRequest="70"/>
-                        <Image 
-                            x:Name="Player1"
-                            WidthRequest="70"/>
-
-                        <Image 
-                            x:Name="Player2"
-                            WidthRequest="70"/>
-                        <Image
-                            x:Name="Player3"
-                            WidthRequest="70"/>
-                        <Image
-                            x:Name="Player4"
-                            WidthRequest="70"/>
-                        <Image 
-                            x:Name="Player5"
-                            WidthRequest="70"/>
-
-                    </StackLayout>
-
-                </ScrollView>
             </StackLayout>
 
         </StackLayout>

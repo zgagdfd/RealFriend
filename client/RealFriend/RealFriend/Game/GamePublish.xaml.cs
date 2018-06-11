@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Net.Http;
+using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,23 +10,44 @@ namespace RealFriend.Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GamePublish : ContentPage
     {
-        string GameKind;
+
         public GamePublish()
         {
             InitializeComponent();
+            BindingContext = new GamePublishViewModel();
         }
 
-        private async void InitGameBtnClicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            GameObject gameData = GetGameObject();
-            if (!String.IsNullOrWhiteSpace(gameData.GameName))
+            base.OnAppearing();
+            ((GamePublishViewModel)BindingContext).OnAppearing();
+        }
+
+        async void PublishGameBtnClicked(object sender, EventArgs e)
+        {
+            GameData gameData = GetGameData();
+            if (!String.IsNullOrWhiteSpace(gameData.name))
             {
-                
                 // 传输数据
+                var json = JsonConvert.SerializeObject(gameData);
+                string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/game/create";
 
+                HttpClient client = new HttpClient();
 
-                await this.DisplayAlert("提示", "互动发起成功", "确定");
-                await Navigation.PushModalAsync(new MainPage());
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(new Uri(url), content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    await this.DisplayAlert("提示", "互动发起成功", "确定");
+                    await Navigation.PushModalAsync(new MainPage());
+                }
+                else
+                {
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    await DisplayAlert("提示", "StatusCode：" + responseString + " ", "确定");
+                }
+
             }
             else
             {
@@ -34,19 +58,29 @@ namespace RealFriend.Game
 
         void OnPickerSelectedIndexChanged(object sender, EventArgs args)
         {
-            GameKind = (string)KindPicker.SelectedItem;
+            // GameKind = (string)KindPicker.SelectedItem;
         }
 
-        private GameObject GetGameObject()
+        private GameData GetGameData()
         {
-            GameObject go = new GameObject();
-            go.GameName = GameNameEntry.Text;
-            go.GamePass = GamePassEntry.Text.GetHashCode().ToString();
-            go.GameDate = DatePicker.Date.ToString().Trim();
-            go.GameTime = TimePicker.Time.ToString().Trim();
-            go.GameInfo = GameInfoEntry.Text.Trim();
-            go.GameKind = GameKind;
-            return go;
+            // List<SelectableData<FriendData>> players = GamePublishViewModel.SelectedData.Where(x => x.IsSelected).ToList();
+
+            GameData data = new GameData
+            {
+                name = GameNameEntry.Text
+                /*
+                // 加上活动的发起者
+                PulblisherUserName = ...
+                PlayerList = players,
+                GamePass = GamePassEntry.Text,
+                GameDate = DatePicker.Date,
+                GameTime = TimePicker.Time,
+                GameInfo = GameInfoEntry.Text,
+                GameKind = (string)KindPicker.SelectedItem
+                */
+            };
+            return data;
         }
+
     }
 }
