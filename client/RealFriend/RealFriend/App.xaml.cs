@@ -13,8 +13,11 @@ namespace RealFriend
 		{
 			InitializeComponent();
 
-			MainPage = new RealFriend.MainPage();
-		}
+			//MainPage = new RealFriend.MainPage();
+            //MainPage = new RealFriend.UserDetail();
+            MainPage = new RealFriend.FriendPage();
+
+        }
 
 		protected override void OnStart ()
 		{

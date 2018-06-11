@@ -1,17 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RealFriend.Setting">
+             x:Class="RealFriend.Setting"
+             BackgroundColor="Gray">
     <ContentPage.Content>
         <StackLayout>
-            <Button
+            <!--Button
                 BorderRadius="70" 
                 HeightRequest="90" 
                 WidthRequest="90"
                 BackgroundColor="GreenYellow" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Start" 
-                Text="123"/>
+                Text="123"/-->
+            <!-- x:Name="JsonText"/-->
+            <Button 
+                x:Name = "ReturnButton"
+                    FontSize="18"
+                    Text="返回" 
+                    TextColor="White"
+                    Margin="10,5,5,5"
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center"
+                    WidthRequest="100"/>
+            <Image 
+                x:Name = "HeadImage"
+                WidthRequest="90"
+                Margin="10,4,5,4"
+                HeightRequest="90"
+             />
             <StackLayout
                 HeightRequest="100" 
                 VerticalOptions="Start" 
@@ -35,7 +52,7 @@
                     Margin="10,5,5,5"/>
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
-                    Text="msky" 
+                    x:Name="UserName"
                     TextColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -49,7 +66,7 @@
                     WidthRequest="100" />
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
-                    Text="12345678"
+                    x:Name="UserId"
                     TextColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -63,7 +80,7 @@
                     WidthRequest="100"/>
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
-                    Text="女"
+                    x:Name="Gender"
                     TextColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -77,8 +94,8 @@
                     WidthRequest="100"/>
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
-                    Text="点击选择出生日期" 
-                    TextColor="Gray" />
+                    x:Name="Date" 
+                    TextColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
@@ -91,8 +108,8 @@
                     WidthRequest="100"/>
                 <Entry 
                     HorizontalOptions="FillAndExpand"
-                    Text="不签！不签！不签！" 
-                    TextColor="Gray" />
+                    x:Name="Signature" 
+                    TextColor="White" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
@@ -102,7 +119,8 @@
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
-                    WidthRequest="100"/>
+                    WidthRequest="100"
+                    />
                 <Entry 
                     HorizontalOptions="EndAndExpand"
                     Text="＞"
@@ -113,7 +131,8 @@
                 VerticalOptions="Start" 
                 HorizontalOptions="FillAndExpand" 
                 Spacing="20">
-                <Label 
+                <Button
+                    x:Name="QuitBtn"
                     Text="退出登录"
                     FontSize="26"
                     HorizontalOptions="Center"

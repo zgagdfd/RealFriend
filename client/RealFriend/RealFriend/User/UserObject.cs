@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RealFriend.User
+namespace RealFriend
 {
     class UserObject
     {

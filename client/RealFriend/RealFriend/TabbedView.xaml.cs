@@ -12,9 +12,9 @@ namespace RealFriend
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TabbedView : ContentView
 	{
-		public TabbedView()
-		{
-			InitializeComponent ();
+        public TabbedView()
+        {
+            InitializeComponent();
             HomePageBtn.Clicked += async (sender, args) => {
                 await Navigation.PushModalAsync(new HomePage());
             };
@@ -24,6 +24,10 @@ namespace RealFriend
             MessagePageBtn.Clicked += async (sender, args) => {
                 await Navigation.PushModalAsync(new MessagePage());
             };
-		}
+            UserPageBtn.Clicked += async (sender, args) =>
+            {
+                await Navigation.PushModalAsync(new UserDetail());
+            };
+        }
 	}
 }
