@@ -14,7 +14,9 @@
                 VerticalOptions="Start" 
                 Text="123"/-->
             <!-- x:Name="JsonText"/-->
-            <Button 
+            <StackLayout Orientation="Horizontal">
+
+                <Button 
                 x:Name = "ReturnButton"
                     FontSize="18"
                     Text="返回" 
@@ -23,6 +25,17 @@
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
                     WidthRequest="100"/>
+                <Button 
+                 x:Name = "SaveButton"
+                    FontSize="18"
+                    Text="保存" 
+                    TextColor="White"
+                    Margin="10,5,5,5"
+                    HorizontalOptions="EndAndExpand" 
+                    VerticalOptions="Center"
+                    WidthRequest="100"
+                    Clicked ="PostBtnClicked"/>
+            </StackLayout>
             <Image 
                 x:Name = "HeadImage"
                 WidthRequest="90"
