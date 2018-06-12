@@ -1,0 +1,1009 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>#right-panel {
+    background-color: #fff;
+}
+
+#right-panel .cover-top {
+    background: linear-gradient(to bottom, #fff 50%, transparent);
+}
+
+#cover-bottom #cover-bottom-background-right {
+    background: #fff;
+}
+
+@font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+#container {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #373737;
+  font-family: "Roboto", "Noto Sans", "Ubuntu", "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif, "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft Yahei";
+  font-size: 14px;
+  line-height: 2;
+  word-wrap: break-word;
+  background-color: #fff;
+}
+
+#container a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+#container a:active,
+#container a:hover {
+  outline-width: 0;
+}
+
+#container strong {
+  font-weight: inherit;
+}
+
+#container strong {
+  font-weight: bolder;
+}
+
+#container h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+#container img {
+  border-style: none;
+}
+
+#container svg:not(:root) {
+  overflow: hidden;
+}
+
+#container code,
+#container kbd,
+#container pre {
+  font-family: "Roboto Mono", "Ubuntu Mono", "Menlo", "Consolas", monospace;
+  font-size: 1em;
+}
+
+#container hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+#container input {
+  font: inherit;
+  margin: 0;
+}
+
+#container input {
+  overflow: visible;
+}
+
+#container button:-moz-focusring,
+#container [type="button"]:-moz-focusring,
+#container [type="reset"]:-moz-focusring,
+#container [type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+#container [type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+#container table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+#container td,
+#container th {
+  padding: 0;
+}
+
+#container * {
+  box-sizing: border-box;
+}
+
+#container input {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#container a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+#container a:hover,
+#container a:active {
+  text-decoration: underline;
+}
+
+#container hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+#container hr::before {
+  display: table;
+  content: "";
+}
+
+#container hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+#container h1,
+#container h2,
+#container h3,
+#container h4,
+#container h5,
+#container h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+#container h1 {
+  font-size: 30px;
+}
+
+#container h2 {
+  font-size: 21px;
+}
+
+#container h3 {
+  font-size: 16px;
+}
+
+#container h4 {
+  font-size: 14px;
+}
+
+#container h5 {
+  font-size: 12px;
+}
+
+#container h6 {
+  font-size: 11px;
+}
+
+#container p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#container blockquote {
+  margin: 0;
+}
+
+#container ul,
+#container ol {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#container ol ol,
+#container ul ol {
+  list-style-type: lower-roman;
+}
+
+#container ul ul ol,
+#container ul ol ol,
+#container ol ul ol,
+#container ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+#container dd {
+  margin-left: 0;
+}
+
+#container code {
+  font-family: "Roboto Mono", "Ubuntu Mono", "Menlo", "Consolas", monospace;
+  font-size: 12px;
+}
+
+#container pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px "Roboto Mono", "Ubuntu Mono", "Menlo", "Consolas", monospace;
+}
+
+#container .pl-0 {
+  padding-left: 0 !important;
+}
+
+#container .pl-1 {
+  padding-left: 3px !important;
+}
+
+#container .pl-2 {
+  padding-left: 6px !important;
+}
+
+#container .pl-3 {
+  padding-left: 12px !important;
+}
+
+#container .pl-4 {
+  padding-left: 24px !important;
+}
+
+#container .pl-5 {
+  padding-left: 36px !important;
+}
+
+#container .pl-6 {
+  padding-left: 48px !important;
+}
+
+#container .form-select::-ms-expand {
+  opacity: 0;
+}
+
+#container:before {
+  display: table;
+  content: "";
+}
+
+#container:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+#container>*:first-child {
+  margin-top: 0 !important;
+}
+
+#container>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+#container a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+#container .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+#container .anchor:focus {
+  outline: none;
+}
+
+#container h1,
+#container h2,
+#container h3,
+#container h4,
+#container h5,
+#container h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+#container h1 .octicon-link,
+#container h2 .octicon-link,
+#container h3 .octicon-link,
+#container h4 .octicon-link,
+#container h5 .octicon-link,
+#container h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+#container h1:hover .anchor,
+#container h2:hover .anchor,
+#container h3:hover .anchor,
+#container h4:hover .anchor,
+#container h5:hover .anchor,
+#container h6:hover .anchor {
+  text-decoration: none;
+}
+
+#container h1:hover .anchor .octicon-link,
+#container h2:hover .anchor .octicon-link,
+#container h3:hover .anchor .octicon-link,
+#container h4:hover .anchor .octicon-link,
+#container h5:hover .anchor .octicon-link,
+#container h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+#container h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+#container h1 .anchor {
+  line-height: 1;
+}
+
+#container h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+#container h2 .anchor {
+  line-height: 1;
+}
+
+#container h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+#container h3 .anchor {
+  line-height: 1.2;
+}
+
+#container h4 {
+  font-size: 1.25em;
+}
+
+#container h4 .anchor {
+  line-height: 1.2;
+}
+
+#container h5 {
+  font-size: 1em;
+}
+
+#container h5 .anchor {
+  line-height: 1.1;
+}
+
+#container h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+#container h6 .anchor {
+  line-height: 1.1;
+}
+
+#container p,
+#container blockquote,
+#container ul,
+#container ol,
+#container dl,
+#container table,
+#container pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+#container hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+#container ul,
+#container ol {
+  padding-left: 2em;
+}
+
+#container ul ul,
+#container ul ol,
+#container ol ol,
+#container ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#container li>p {
+  margin-top: 16px;
+}
+
+#container dl {
+  padding: 0;
+}
+
+#container dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#container dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+#container blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+#container blockquote>:first-child {
+  margin-top: 0;
+}
+
+#container blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+#container table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+#container table th {
+  font-weight: bold;
+}
+
+#container table th,
+#container table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+#container table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+#container table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+#container img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+#container code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+#container code:before,
+#container code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+#container pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+#container .highlight {
+  margin-bottom: 16px;
+}
+
+#container .highlight pre,
+#container pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+#container .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+#container pre {
+  word-wrap: normal;
+}
+
+#container pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+#container pre code:before,
+#container pre code:after {
+  content: normal;
+}
+
+#container kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+#container .pl-c {
+  color: #969896;
+}
+
+#container .pl-c1,
+#container .pl-s .pl-v {
+  color: #0086b3;
+}
+
+#container .pl-e,
+#container .pl-en {
+  color: #795da3;
+}
+
+#container .pl-s .pl-s1,
+#container .pl-smi {
+  color: #333;
+}
+
+#container .pl-ent {
+  color: #63a35c;
+}
+
+#container .pl-k {
+  color: #a71d5d;
+}
+
+#container .pl-pds,
+#container .pl-s,
+#container .pl-s .pl-pse .pl-s1,
+#container .pl-sr,
+#container .pl-sr .pl-cce,
+#container .pl-sr .pl-sra,
+#container .pl-sr .pl-sre {
+  color: #183691;
+}
+
+#container .pl-v {
+  color: #ed6a43;
+}
+
+#container .pl-id {
+  color: #b52a1d;
+}
+
+#container .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+#container .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+#container .pl-ml {
+  color: #693a17;
+}
+
+#container .pl-mh,
+#container .pl-mh .pl-en,
+#container .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+#container .pl-mq {
+  color: #008080;
+}
+
+#container .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+#container .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+#container .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+#container .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+#container .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+#container .pl-mo {
+  color: #1d3e81;
+}
+
+#container kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px "Roboto Mono", "Ubuntu Mono", "Menlo", "Consolas", monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+#container .full-commit .btn-outline:not(:disabled):hover {
+  color: #4078c0;
+  border: 1px solid #4078c0;
+}
+
+#container :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #4078c0;
+}
+
+#container .octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+#container .task-list-item {
+  list-style-type: none;
+}
+
+#container .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+#container .task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+#container hr {
+  border-bottom-color: #eee;
+}
+</style></head><body id="container" class="export export-html"><span i="1"><h1 id="realfriend-api-">RealFriend API 文档</h1>
+</span><span i="2"><ul>
+<li><span i="2">acmore</span></li>
+<li><span i="3">2018.5.31</span></li>
+</ul>
+</span><span i="6"><h2 id="0-api">0. API</h2>
+</span><span i="7"><h4 id="0-1-api-">0.1 API列表</h4>
+</span><span i="8"><p>直接访问<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>就能看到后端的API列表，这份列表是基于<code>django-rest-framework</code>自动生成的，基本包含了所有的API，部分API未被检测到，也会在下边单独列出。</p>
+</span><span i="10"><p><strong>对于访问的任何API接口，都要在其后加上<code>?format=json</code>这样才能得到Json风格的返回值。</strong></p>
+</span><span i="12"><p>下边的文档中任何接口的请求都有返回值，其中在<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>能看到的接口地址都是固定的，在浏览器访问试一下就能清楚。对于<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>上没有的，我会单独写明。</p>
+</span><span i="14"><h4 id="0-2-">0.2 如何访问</h4>
+</span><span i="15"><p>关于Rest风格的接口，基本操作有四种：</p>
+</span><span i="16"><ul>
+<li><span i="16">get：获取操作</span></li>
+<li><span i="17">update/patch：更新操作</span></li>
+<li><span i="18">post/put：新增操作</span></li>
+<li><span i="19">delete：删除操作</span></li>
+</ul>
+</span><span i="22"><p>反映在具体的编程中，patch和put都可以用post完成，一些比较现代化的网络请求工具会直接提供这四种甚至更多的方法。</p>
+</span><span i="24"><h4 id="0-3-">0.3 关于参数</h4>
+</span><span i="25"><p>在一般的网络请求中，url定位资源有几种形式，分别如下：</p>
+</span><span i="26"><ul>
+<li><span i="26">方法请求</span><span i="27"><ul>
+<li><span i="27">即使是同样的路径，使用不同的方法请求可能会有不同的效果，如对同一个用户使用GET和DELETE方法显然结果是不同的</span></li>
+</ul>
+</span></li>
+<li><span i="28">路径请求</span><span i="29"><ul>
+<li><span i="29">可以把参数隐含才url路径中，如/user/acmore，这里的<code>acmore</code>就是一个变量，可以变换其内容来获取不同的用户信息，相应的<code>acmore</code>就叫路径参数，在下边的API文档中，需要路径参数的会用<code>{}</code>标明，如<code>/user/{username}</code></span></li>
+</ul>
+</span></li>
+<li><span i="30">参数请求</span><span i="31"><ul>
+<li><span i="31">这是最经典和常用的一种请求方式，对于不同的方法有不同的参数形式，分别如下：</span><span i="32"><ul>
+<li><span i="32">GET：直接在url后附上<code>?key1=value1&amp;key2=value2...</code>的请求参数</span></li>
+<li><span i="33">POST：在请求url的时候使用附加数据将json风格的键值对发送给服务器</span></li>
+</ul>
+</span></li>
+<li><span i="34">以上两种形式区别之一在于url的长度是有限制的，所以GET参数不能过长，而POST就没有这个限制</span></li>
+</ul>
+</span></li>
+</ul>
+</span><span i="37"><h4 id="0-4-">0.4 易混淆点</h4>
+</span><span i="38"><ul>
+<li><span i="38"><code>username</code>和<code>nickname</code>不一样，前者相当于微信号，唯一且固定，后者相当于微信昵称，随时可变</span></li>
+</ul>
+</span><span i="42"><h2 id="1-user">1. User</h2>
+</span><span i="43"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">获取用户列表</td>
+<td style="text-align:center"><code>/user</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">这是后台检测状态的API，客户端用不到</td>
+</tr>
+<tr>
+<td style="text-align:center">获取用户信息</td>
+<td style="text-align:center"><code>/user/{username}</code></td>
+<td style="text-align:center">GET/UPDATE</td>
+<td style="text-align:center">GET:无/UPDATE:具体的内容见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">获取用户详细信息的API，同时使用UPDATE方法可以更新用户信息（只需要保持用户id不变）</td>
+</tr>
+<tr>
+<td style="text-align:center">获取用户关注的用户</td>
+<td style="text-align:center"><code>/user/{username}/followees</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">获取用户关注的人（而不是粉丝）</td>
+</tr>
+<tr>
+<td style="text-align:center">获取用户的粉丝</td>
+<td style="text-align:center"><code>/user/{username}/followers</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">获取用户的粉丝（关注用户的人）</td>
+</tr>
+<tr>
+<td style="text-align:center">获取用户和另一位用户的友好度</td>
+<td style="text-align:center"><code>/user/{username}/friendship/{friend_username}</code></td>
+<td style="text-align:center">GET/UPDATE</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">获取用户名为<code>username</code>的用户和用户名为<code>friend_username</code>的用户之间的友好度，并且可以通过这个接口来更新数值</td>
+</tr>
+<tr>
+<td style="text-align:center">创建新用户</td>
+<td style="text-align:center"><code>/user/create</code></td>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">具体参数见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>，其中的<code>followers</code>/<code>followees</code>/<code>info</code>/<code>create_time</code>这四个字段不用填，后端会自动创建</td>
+<td style="text-align:center">这是用户注册时使用的接口，如果请求成功则说明用户注册成功，否则说明失败，具体的失败信息现在还没做</td>
+</tr>
+<tr>
+<td style="text-align:center">登录验证（<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>没有）</td>
+<td style="text-align:center"><code>/user/login</code></td>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">{<br><code>username</code>: 用户名,<br><code>password</code>: 用户密码<br>}<br><br>返回值是<code>{"status": "success"}</code>或<code>{"status": "password wrong"}</code>或<code>{"status": "user not exists"}</code></td>
+<td style="text-align:center">用户的登录验证，返回三种状态分别表示登录成功、用户密码错误以及用户不存在</td>
+</tr>
+<tr>
+<td style="text-align:center">关注好友（<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>没有）</td>
+<td style="text-align:center"><code>/user/{username}/follow/{friend_username}</code></td>
+<td style="text-align:center">不限，最好是POST。如果成功，返回值是<code>{"status": "success"}</code>，否则直接抛出异常</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">用户名为<code>username</code>的用户关注用户名为<code>friend_username</code>的用户</td>
+</tr>
+</tbody>
+</table>
+</span><span i="54"><h2 id="2-activity">2. Activity</h2>
+</span><span i="55"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">获取活动列表</td>
+<td style="text-align:center"><code>/activity</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">获取所有的活动列表，按照时间排序，首页可以使用</td>
+</tr>
+<tr>
+<td style="text-align:center">获取活动详情</td>
+<td style="text-align:center"><code>/activity/{activity_id}</code></td>
+<td style="text-align:center">GET/UPDATE</td>
+<td style="text-align:center">GET:无/UPDATE:具体的内容见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">获取活动的详细信息，也可以通过这个接口更新活动内容</td>
+</tr>
+<tr>
+<td style="text-align:center">创建新的活动</td>
+<td style="text-align:center"><code>/activity/create</code></td>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">具体参数见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a>，其中的<code>create_time</code>这个字段不用填，后端会自动创建，其中<code>participants</code>是上传一个用户id的列表</td>
+<td style="text-align:center">通过这个接口来创建新的活动</td>
+</tr>
+<tr>
+<td style="text-align:center">发表评论</td>
+<td style="text-align:center"><code>/activity/{activity_id}/comment</code></td>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">{<br><code>nickname</code>: 用户昵称,<br><code>username</code>: 用户名,<br><code>content</code>: 评论内容<br>}<br><br>返回值是<code>{"status": "success", "comment_id": 新评论的id}</code></td>
+<td style="text-align:center">用户在某个活动下发表评论</td>
+</tr>
+<tr>
+<td style="text-align:center">获取评论列表</td>
+<td style="text-align:center"><code>/activity/{activity_id}/comments</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无。返回值是一个列表，列表的每个元素是一个comment实例，其内容为<br>{<br><code>id</code>: 评论id,<br><code>nickname</code>: 评论者的用户昵称,<br><code>username</code>: 评论者的用户名<br><code>content</code>: 评论者的评论内容,<br><code>create_at</code>: 评论发表时间<br>}</td>
+<td style="text-align:center">获取某个活动下的评论列表</td>
+</tr>
+</tbody>
+</table>
+</span><span i="63"><h2 id="3-game">3. Game</h2>
+</span><span i="64"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">获取游戏列表</td>
+<td style="text-align:center"><code>/game</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">获取所有的游戏列表，按照时间排序，首页可以使用</td>
+</tr>
+<tr>
+<td style="text-align:center">获取游戏详情</td>
+<td style="text-align:center"><code>/game/{game_id}</code></td>
+<td style="text-align:center">GET/UPDATE</td>
+<td style="text-align:center">GET:无/UPDATE:具体的内容见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">获取游戏详情，并且可以更新游戏的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">创建新的游戏</td>
+<td style="text-align:center"><code>/game/create</code></td>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">具体参数见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">通过这个接口来创建新的游戏</td>
+</tr>
+</tbody>
+</table>
+</span><span i="70"><h2 id="4-message">4. Message</h2>
+</span><span i="71"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">获取消息列表</td>
+<td style="text-align:center"><code>/message</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">?username={username}</td>
+<td style="text-align:center">获取某个用户所有的消息列表，按照时间排序</td>
+</tr>
+<tr>
+<td style="text-align:center">获取消息详情</td>
+<td style="text-align:center"><code>/message/{message_id}</code></td>
+<td style="text-align:center">GET/UPDATE</td>
+<td style="text-align:center">GET:无/UPDATE:具体的内容见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">获取消息详情，并且可以更新消息的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">创建新的消息</td>
+<td style="text-align:center"><code>/message/create</code></td>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">具体参数见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">通过这个接口来创建新的消息</td>
+</tr>
+<tr>
+<td style="text-align:center">将消息标记为已读</td>
+<td style="text-align:center"><code>/message/read/{message_id}</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无。返回值是<code>{"status": "success"}</code></td>
+<td style="text-align:center">进入消息详情时请求这个接口，将消息标记为已读</td>
+</tr>
+</tbody>
+</table>
+</span><span i="78"><h2 id="5-merchant">5. Merchant</h2>
+</span><span i="79"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">获取商家列表</td>
+<td style="text-align:center"><code>/merchant</code></td>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">获取所有的商家列表</td>
+</tr>
+<tr>
+<td style="text-align:center">获取商家详情</td>
+<td style="text-align:center"><code>/merchant/{merchant_id}</code></td>
+<td style="text-align:center">GET/UPDATE</td>
+<td style="text-align:center">GET:无/UPDATE:具体的内容见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">获取商家详情，并且可以更新商家的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">创建新的商家</td>
+<td style="text-align:center"><code>/merchant/create</code></td>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">具体参数见<a href="http://real.chinanorth.cloudapp.chinacloudapi.cn/">后端地址</a></td>
+<td style="text-align:center">通过这个接口来创建新的商家</td>
+</tr>
+</tbody>
+</table>
+</span><span i="85"><h2 id="6-token">6. Token</h2>
+</span><span i="86"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">地址</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">获取身份令牌（可用，但是目前不需要用）</td>
+<td style="text-align:center"><code>/token</code></td>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">{<br><code>username</code>: 权限用户的用户名,<br><code>password</code>: 权限用户的密码<br>}<br><br>返回值是<br>{<br><code>status</code>: "success",<br><code>token</code>: 有效的令牌<br>}</td>
+<td style="text-align:center">将权限用户的登录口令POST上来之后就能得到令牌，然后请求消息的时候加在消息头中，才可以访问数据（目前没有在这里设限，所以不需要获取令牌就能直接访问）</td>
+</tr>
+</tbody>
+</table>
+</span><span i="90"><hr>
+</span></body>
+</html>
