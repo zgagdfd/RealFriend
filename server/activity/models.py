@@ -20,7 +20,7 @@ class Activity(models.Model):
     title = models.CharField(max_length=36)
     # 活动涉及的商家
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE,
-                                 related_name='activities')
+                                 related_name='activities', null=True)
     # 活动的参与人员
     participants = models.ManyToManyField(User, related_name='participated_activities')
     # 活动是否对非相关用户可见
