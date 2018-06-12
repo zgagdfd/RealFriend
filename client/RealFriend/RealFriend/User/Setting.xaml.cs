@@ -51,6 +51,31 @@ namespace RealFriend
             return null;
         }
 
+        async Task PostBtnClicked(Object sender, EventArgs e)
+        {
+            UserObject userObject = GetUserObject();
+            var json = JsonConvert.SerializeObject(userObject);
+
+            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/msky";
+
+            client = new HttpClient();
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(new Uri(url), content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("提示", "修改成功", "确定");
+                await Navigation.PushModalAsync(new UserDetail());
+            }
+            else
+            {
+                var responseString = await response.Content.ReadAsStringAsync();
+                await DisplayAlert("提示", "StatusCode：" + responseString + " ", "确定");
+
+            }
+            client.Dispose();
+        }
         private void ParseAndDisplay(string jsonText)
         {
             //JsonText.Text = jsonText;
@@ -61,6 +86,20 @@ namespace RealFriend
             Signature.Text = ll.signature;
             HeadImage.Source = ll.avatar;
             Date.Text = "1991-1-1";
+        }
+
+        private UserObject GetUserObject()
+        {
+            UserObject user = new UserObject();
+            user.username = UserName.Text;
+            //user.passwd = Password.Text;
+            //user.nickname = NickName.Text;
+            user.gender = Gender.Text;
+            //user.email = EmailTxt.Text;
+            //user.phone = PhoneTxt.Text;
+            //user.avatar = HeadImage.Source;
+            user.signature = Signature.Text;
+            return user;
         }
 
     }
