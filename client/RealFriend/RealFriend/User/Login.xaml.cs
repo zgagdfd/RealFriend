@@ -42,10 +42,16 @@ namespace RealFriend
                 UserObject uo = JsonConvert.DeserializeObject<UserObject>(content);
                 client.Dispose();
                 string rightPas = uo.passwd;
-                if (Utils.GetMD5(pwd).Equals(rightPas))
+                var cryp = Utils.GetMD5(pwd);
+                if (cryp.Equals(rightPas))
                 {
+                    // 存储账号密码
+                    IDictionary<string, object> properties = Application.Current.Properties;
+                    properties.Clear();
+                    properties.Add(account, cryp);
+                    await Application.Current.SavePropertiesAsync();
                     // 跳转至主页
-                    await Navigation.PushModalAsync(new MainPage());
+                    await Navigation.PushModalAsync(HomePage.Instance);
                 }
                 else
                 {
@@ -66,7 +72,7 @@ namespace RealFriend
         // 忘记密码
         async void ForgetPwdBtnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new MainPage());
+            await DisplayAlert("提示", "敬请期待~~~", "确定");
         }
     }
 }

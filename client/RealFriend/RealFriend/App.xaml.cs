@@ -13,9 +13,17 @@ namespace RealFriend
 		{
 			InitializeComponent();
 
-			//MainPage = new RealFriend.MainPage();
-            //MainPage = new RealFriend.UserDetail();
-            MainPage = new RealFriend.FriendPage();
+            // MainPage = new Get();
+            IDictionary<string, object> properties = Application.Current.Properties;
+
+            if (!properties.Any())
+            {
+                MainPage = new Login();
+            }
+            else
+            {
+                MainPage = new MainPage();
+            }
 
         }
 

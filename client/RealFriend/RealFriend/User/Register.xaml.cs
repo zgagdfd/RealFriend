@@ -62,7 +62,7 @@ namespace RealFriend
                 if (responseMessage.IsSuccessStatusCode)
                 {
                     await DisplayAlert("提示", "注册成功", "确定");
-                    await Navigation.PushModalAsync(new MainPage());
+                    await Navigation.PushModalAsync(new Login());
                 }
                 else
                 {
