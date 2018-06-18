@@ -8,4 +8,5 @@ from .models import Game
 class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'initiator', 'participants', 'is_private',
+                  'status', 'create_time')
