@@ -23,17 +23,17 @@ namespace RealFriend
 
         private void LoginBtnClicked(object sender, EventArgs e)
         {
-            string acc = AccountEntry.Text.Trim();
-            string pwd = PasswordEntry.Text;
-            if (String.IsNullOrEmpty(acc) || String.IsNullOrEmpty(pwd))
+            string username = AccountEntry.Text.Trim();
+            string password = PasswordEntry.Text;
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
                 return;
-            CheckPass(acc, pwd);
+            CheckPass(username, password);
         }
 
         // 校验账号密码
-        async void CheckPass(string account, string pwd)
+        async void CheckPass(string username, string pwd)
         {
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/" + account;
+            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/" + username;
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();
@@ -41,14 +41,12 @@ namespace RealFriend
             {
                 UserObject uo = JsonConvert.DeserializeObject<UserObject>(content);
                 client.Dispose();
-                string rightPas = uo.passwd;
-                var cryp = Utils.GetMD5(pwd);
-                if (cryp.Equals(rightPas))
+                if (Utils.GetMD5(pwd).Equals(uo.passwd))
                 {
-                    // 存储账号密码
+                    // 存储<username, userobject>
                     IDictionary<string, object> properties = Application.Current.Properties;
                     properties.Clear();
-                    properties.Add(account, cryp);
+                    properties.Add(username, uo);
                     await Application.Current.SavePropertiesAsync();
                     // 跳转至主页
                     await Navigation.PushModalAsync(HomePage.Instance);

@@ -26,7 +26,8 @@ namespace RealFriend
             // 验证密码是否已经修改
             var kv = properties.First();
             await GetPwdAsync(kv.Key);
-            if (String.IsNullOrEmpty(correctPwd) || !String.Equals((string)kv.Value, correctPwd))
+            if (String.IsNullOrEmpty(correctPwd) 
+                || !String.Equals(((UserObject)kv.Value).passwd, correctPwd))
             {
                 await DisplayAlert("提示", "密码已更改，请重新登录~~", "确定");
                 await Navigation.PushModalAsync(new Login());
