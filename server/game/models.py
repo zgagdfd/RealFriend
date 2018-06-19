@@ -6,6 +6,7 @@ from user.models import User
 name_choices = ()
 status_choices = (('not_start', '还未开始'), ('in_progress', '正在进行'),
                   ('finished', '已经结束'))
+type_choices = (('室内', 'indoor'), ('室外', 'outdoor'), ('线上', 'online'))
 
 
 class Game(models.Model):
@@ -23,3 +24,10 @@ class Game(models.Model):
                               max_length=16)
     # 发起互动的时间
     create_time = models.DateTimeField(default=now)
+    # 开始时间
+    start_time = models.DateTimeField()
+    # 互动类型
+    type = models.CharField(choices=type_choices, default=type_choices[0][0],
+                            max_length=16)
+    # 互动简介
+    introduction = models.CharField(max_length=256, default='')
