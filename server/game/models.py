@@ -6,7 +6,7 @@ from user.models import User
 name_choices = ()
 status_choices = (('not_start', '还未开始'), ('in_progress', '正在进行'),
                   ('finished', '已经结束'))
-type_choices = (('室内', 'indoor'), ('室外', 'outdoor'), ('线上', 'online'))
+type_choices = (('indoor', '室内'), ('outdoor', '室外'), ('online', '线上'))
 
 
 class Game(models.Model):
