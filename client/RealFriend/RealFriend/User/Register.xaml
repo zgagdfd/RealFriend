@@ -167,7 +167,6 @@
                         Keyboard="Email"/>
                 </StackLayout>
 
-
                 <StackLayout
                     Orientation="Horizontal">
                     <Label Text=" 头      像  "
@@ -177,7 +176,8 @@
                         x:Name="Avatar" 
                         HorizontalOptions="FillAndExpand"
                         Placeholder="URL"
-                        Keyboard="Url"/>
+                        Keyboard="Url"
+                        InputTransparent="True"/>
                 </StackLayout>
 
                 <StackLayout

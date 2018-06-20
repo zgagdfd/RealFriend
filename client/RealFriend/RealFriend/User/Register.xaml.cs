@@ -1,18 +1,15 @@
 ﻿using Newtonsoft.Json;
 using RealFriend.User;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace RealFriend
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
         string phoneNum;
@@ -82,7 +79,8 @@ namespace RealFriend
             user.gender = Gender.SelectedItem.Equals("男") ? "boy" : "girl";
             user.email = Email.Text.Trim();
             user.phone = phoneNum.Trim();
-            user.avatar = Avatar.Text.Trim();
+            UserAvatars avatars = new UserAvatars();
+            user.avatar = avatars.GetAvatar();
             user.signature = Signature.Text.Trim();
             return user;
         }

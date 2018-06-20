@@ -30,7 +30,7 @@
                                         Source="{Binding GameImage}" 
                                         WidthRequest="70"
                                         HeightRequest="70"
-                                        Aspect="Fill"/>
+                                        Aspect="AspectFill"/>
 
                                     <StackLayout Margin="5">
                                         <Label
@@ -39,7 +39,7 @@
                                             FontAttributes="Bold"
                                             VerticalOptions="StartAndExpand"/>
                                         <Label
-                                            Text="{Binding GameInfo}"
+                                            Text="{Binding GameIntro}"
                                             FontSize="13"
                                             TextColor="DarkGray"
                                             VerticalOptions="Center"/>

@@ -81,7 +81,7 @@ namespace RealFriend
             //JsonText.Text = jsonText;
             UserObject ll = JsonConvert.DeserializeObject<UserObject>(jsonText);
             UserName.Text = ll.nickname;
-            UserId.Text = ll.id;
+            UserId.Text = "" + ll.id;
             Gender.Text = ll.gender;
             Signature.Text = ll.signature;
             HeadImage.Source = ll.avatar;

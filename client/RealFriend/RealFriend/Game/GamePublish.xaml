@@ -34,20 +34,30 @@
 
                 </StackLayout>
 
-                <!--密码-->
+                <!--私密-->
                 <StackLayout 
                         Orientation="Horizontal" 
                         HorizontalOptions="FillAndExpand" 
                         Spacing="10">
 
-                    <Label Text="密        码" 
+                    <Label Text="设为私密" 
                            VerticalOptions="Center"
                            FontSize="18"/>
 
-                    <Entry x:Name="GamePassEntry" 
-                           IsPassword="True"
-                           Placeholder="Password(Not necessary)"
-                           WidthRequest="230"/>
+                    <Picker
+                        WidthRequest="230"
+                        x:Name="PrivatePicker"
+                        Title="选择互动类型">
+
+                        <Picker.Items>
+                            <x:String>否</x:String>
+                            <x:String>是</x:String>
+                        </Picker.Items>
+
+                        <Picker.SelectedIndex>
+                            0
+                        </Picker.SelectedIndex>
+                    </Picker>
 
                 </StackLayout>
 
@@ -80,17 +90,13 @@
 
                     <Picker
                         WidthRequest="230"
-                        x:Name="KindPicker"
-                        Title="选择互动类型"
-                        SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                        x:Name="TypePicker"
+                        Title="选择互动类型">
 
                         <Picker.Items>
                             <x:String>室  内</x:String>
-                            <x:String>户  外</x:String>
-                            <x:String>纸  牌</x:String>
-                            <x:String>电  子</x:String>
-                            <x:String>其  它</x:String>
-                            <x:String></x:String>
+                            <x:String>室  外</x:String>
+                            <x:String>线  上</x:String>
                         </Picker.Items>
 
                         <Picker.SelectedIndex>
@@ -106,7 +112,7 @@
                     <Label Text="互动简介" 
                            VerticalOptions="Center"
                            FontSize="18"/>
-                    <Editor x:Name="GameInfoEntry" 
+                    <Editor x:Name="GameIntroEntry"
                             WidthRequest="230"
                             HeightRequest="80"/>
                 </StackLayout>
@@ -115,7 +121,6 @@
             <!--邀请好友-->
             <StackLayout Orientation="Horizontal"
                          Spacing="10"
-                        
                          Padding="10,0,0,10">
 
                 <Button Text="邀请好友"
@@ -139,6 +144,7 @@
                                     WidthRequest="60"
                                     HeightRequest="60"
                                     Source="{Binding Data.Avatar}"
+                                    Aspect="AspectFill"
                                     VerticalOptions="Center"/>
                             </Grid>
                         </DataTemplate>

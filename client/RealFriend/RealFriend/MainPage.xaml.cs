@@ -24,10 +24,8 @@ namespace RealFriend
             IDictionary<string, object> properties = Application.Current.Properties;
 
             // 验证密码是否已经修改
-            var kv = properties.First();
-            await GetPwdAsync(kv.Key);
-            if (String.IsNullOrEmpty(correctPwd) 
-                || !String.Equals(((UserObject)kv.Value).passwd, correctPwd))
+            await GetPwdAsync((string)properties["username"]);
+            if (String.IsNullOrEmpty(correctPwd) || !String.Equals((string)properties["password"], correctPwd))
             {
                 await DisplayAlert("提示", "密码已更改，请重新登录~~", "确定");
                 await Navigation.PushModalAsync(new Login());

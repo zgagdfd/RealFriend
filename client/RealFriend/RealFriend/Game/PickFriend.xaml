@@ -27,7 +27,7 @@
                                 <Image
                                     Margin="15,5,5,5"
                                     Source="{Binding Data.Avatar}"
-                                    Aspect="Fill"
+                                    Aspect="AspectFill"
                                     WidthRequest="60"
                                     HeightRequest="60"
                                     HorizontalOptions="Start"/>

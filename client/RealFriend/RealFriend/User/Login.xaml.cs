@@ -2,17 +2,14 @@
 using RealFriend.User;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace RealFriend
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
 
@@ -40,16 +37,20 @@ namespace RealFriend
             if (response.IsSuccessStatusCode)
             {
                 UserObject uo = JsonConvert.DeserializeObject<UserObject>(content);
-                client.Dispose();
                 if (Utils.GetMD5(pwd).Equals(uo.passwd))
                 {
-                    // 存储<username, userobject>
+                    // 存储<username, password>
                     IDictionary<string, object> properties = Application.Current.Properties;
                     properties.Clear();
-                    properties.Add(username, uo);
+                    properties.Add("id", "" + uo.id);
+                    properties.Add("username", uo.username);
+                    properties.Add("password", uo.passwd);
+                    properties.Add("avatar",  uo.avatar);
                     await Application.Current.SavePropertiesAsync();
+
                     // 跳转至主页
                     await Navigation.PushModalAsync(HomePage.Instance);
+                    client.Dispose();
                 }
                 else
                 {

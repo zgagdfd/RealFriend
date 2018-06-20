@@ -6,7 +6,7 @@ namespace RealFriend
 {
     class UserObject
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string username { get; set; }
         public string passwd { get; set; }
         public string nickname { get; set; }

@@ -1,7 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +13,7 @@ namespace RealFriend.Game
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GamePublish : ContentPage
     {
+        HttpClient client;
 
         public GamePublish()
         {
@@ -32,7 +36,7 @@ namespace RealFriend.Game
                 var json = JsonConvert.SerializeObject(gameData);
                 string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/game/create";
 
-                HttpClient client = new HttpClient();
+                client = new HttpClient();
 
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(new Uri(url), content);
@@ -56,31 +60,53 @@ namespace RealFriend.Game
 
         }
 
-        void OnPickerSelectedIndexChanged(object sender, EventArgs args)
-        {
-            // GameKind = (string)KindPicker.SelectedItem;
-        }
-
         private GameData GetGameData()
         {
-            // List<SelectableData<FriendData>> players = GamePublishViewModel.SelectedData.Where(x => x.IsSelected).ToList();
-
+            IDictionary<string, object> properties = Application.Current.Properties;
+            int curUserID = int.Parse((string)properties["id"]);
             GameData data = new GameData
             {
-                name = GameNameEntry.Text
-                /*
-                // 加上活动的发起者
-                PulblisherUserName = ...
-                PlayerList = players,
-                GamePass = GamePassEntry.Text,
-                GameDate = DatePicker.Date,
-                GameTime = TimePicker.Time,
-                GameInfo = GameInfoEntry.Text,
-                GameKind = (string)KindPicker.SelectedItem
-                */
+                name = GameNameEntry.Text.ToUpper(),
+                initiator = curUserID,
+                start_time = DatePicker.Date.ToShortDateString().Replace('/', '-')
+                                + "T"
+                                + TimePicker.Time,
+                is_private = String.Equals((string)PrivatePicker.SelectedItem, "是") ? true : false
             };
+            data.introduction = String.IsNullOrWhiteSpace(GameIntroEntry.Text) ? "一起来玩" + data.name + "吧~~~" : GameIntroEntry.Text;
+
+            switch ((string)TypePicker.SelectedItem)
+            {
+                case "室  内": data.type = "indoor"; break;
+                case "室  外": data.type = "outdoor"; break;
+                case "线  上": data.type = "online"; break;
+            }
+
+            List<SelectableData<FriendData>> players = GamePublishViewModel.SelectedData.Where(x => x.IsSelected).ToList();
+            List<int> participants = new List<int>();
+            foreach (var player in players)
+            {
+                participants.Add(player.Data.UserID);
+            }
+            if(!participants.Contains(curUserID))
+                participants.Add(curUserID);
+
+            data.participants = participants;
             return data;
         }
 
+        async Task<int> GetID(string username)
+        {
+            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/" + username;
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(new Uri(url));
+            var content = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                UserObject uo = JsonConvert.DeserializeObject<UserObject>(content);
+                return await Task.FromResult(uo.id);
+            }
+            return await Task.FromResult(0);
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace RealFriend
             //JsonText.Text = jsonText;
             UserObject ll = JsonConvert.DeserializeObject<UserObject>(jsonText);
             UserName.Text = ll.nickname;
-            UserId.Text = ll.id;
+            UserId.Text = "" + ll.id;
             Constellation.Text = "射手座";
             Signature.Text = ll.signature;
             HeadImage.Source = ll.avatar;

@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,20 +19,39 @@ namespace RealFriend.Game
 
         public GamePublishViewModel()
         {
+            GetUsersAsync();
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        private async Task GetUsersAsync()
+        {
             SelectedData = new List<SelectableData<FriendData>>();
-            // 朋友列表
-            for (int i = 1; i < 21; i++)
+            // 获得user列表
+            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(new Uri(url));
+            var content = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
             {
-                SelectableData<FriendData> data = new SelectableData<FriendData>
+                List<UserObject> userObjects = JsonConvert.DeserializeObject<List<UserObject>>(content);
+                foreach (var user in userObjects)
                 {
-                    Data = new FriendData
+                    SelectableData<FriendData> data = new SelectableData<FriendData>
                     {
-                        Avatar = "icon.png",
-                        UserID = "" + i,
-                        UserName = "Friend" + i
-                    }
-                };
-                SelectedData.Add(data);
+                        Data = new FriendData
+                        {
+                            Avatar = user.avatar,
+                            UserID = user.id,
+                            UserName = user.username
+                        }
+                    };
+                    SelectedData.Add(data);
+                }
+            }
+            else
+            {
+                Console.Out.WriteLine("请求失败~~~~~~~" + content);
+                // await DisplayAlert("提示", "StatusCode：" + content + " ", "确定");
             }
         }
 

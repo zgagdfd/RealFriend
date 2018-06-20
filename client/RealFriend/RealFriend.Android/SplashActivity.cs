@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace RealFriend.Droid
 {
-    [Activity(Label = "SplashActivity", MainLauncher = false, NoHistory = true, Theme = "@style/Theme.Splash")]
+    [Activity(Label = "RealFriend", MainLauncher = false, NoHistory = true, Theme = "@style/Theme.Splash")]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

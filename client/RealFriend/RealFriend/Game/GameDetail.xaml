@@ -3,29 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealFriend.GameDetail"
              xmlns:control="clr-namespace:HorizontalList;assembly=HorizontalList"
-             NavigationPage.HasBackButton="True"
              Title="互动详情">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical"
                      Spacing="10">
             <Image
                 Source="{Binding GameImage}"
-                HeightRequest="180"
-                Aspect="Fill"/>
+                HeightRequest="200"
+                Aspect="AspectFill"/>
 
             <StackLayout
                 Orientation="Vertical"
                 Spacing="10"
                 Padding="13,0,13,0">
                 <Label
-                    Text="{Binding GameName}"
+                    Text="{Binding GameDetailLabel}"
                     HorizontalOptions="Start"
                     TextColor="DarkGray"
                     FontSize="16"
                     InputTransparent="True"/>
 
                 <Label
-                    Text="{Binding GameInfo}"
+                    Text="{Binding GameIntro}"
                     FontSize="19"/>
 
                 <Button
@@ -46,8 +45,8 @@
                     Padding="5"
                     WidthRequest="60">
                     <Image
-                        Source="{Binding PublisherAvatar}"
-                        Aspect="Fill"/>
+                        Source="{Binding InitiatorAvatar}"
+                        Aspect="AspectFill"/>
                 </Grid>
 
 
@@ -59,7 +58,7 @@
                         FontSize="16"
                         VerticalOptions="CenterAndExpand"/>
                     <Label
-                        Text="{Binding PuiblisherUserName}"
+                        Text="{Binding InitiatorName}"
                         FontSize="20"
                         FontAttributes="Bold"
                         VerticalOptions="CenterAndExpand"/>
@@ -67,7 +66,7 @@
                 </StackLayout>
 
                 <Button
-                    Clicked="JoinGameBtnClicked"
+                    Clicked="GameBeginBtnClicked"
                     Text="立即加入"
                     FontSize="15"
                     VerticalOptions="Center"
@@ -101,6 +100,7 @@
                                     WidthRequest="60"
                                     HeightRequest="60"
                                     Source="{Binding Avatar}"
+                                    Aspect="AspectFill"
                                     VerticalOptions="Center"/>
                             </Grid>
                         </DataTemplate>

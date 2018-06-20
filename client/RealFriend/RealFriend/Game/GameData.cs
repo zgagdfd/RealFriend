@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace RealFriend.Game
 {
     public class GameData
     {
+        public int id { get; set; }
         public string name { get; set; }
-        /*
-        public string PulblisherUserName { get; set; }
-        public List<FriendData> PlayersList { get; set; }
-        public string GamePass { get; set; }
-        public DateTime GameDate { get; set; }
-        public TimeSpan GameTime { get; set; }
-        public string GameInfo { get; set; }
-        public string GameKind { get; set; }
-        */
+        public int initiator { get; set; }
+        public List<int> participants { get; set; }
+        public bool is_private { get; set; } = false;
+        // public string status { get; set; }
+        // public string create_time { get; set; }
+        public string start_time { get; set; }
+        public string type { get; set; }
+        public string introduction { get; set; }
     }
 }

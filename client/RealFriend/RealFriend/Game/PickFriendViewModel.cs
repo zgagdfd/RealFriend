@@ -16,7 +16,7 @@ namespace RealFriend.Game
         public List<SelectableData<FriendData>> GetNewData()
         {
             var list = new List<SelectableData<FriendData>>();
-            // 将所有的ListItem传回去，但是只显示IsSelected的Item
+            // 将所有的ListItem传回去，但是只显示IsSelected == true的Item
             foreach (var data in DataList)
                 list.Add(new SelectableData<FriendData>()
                 {

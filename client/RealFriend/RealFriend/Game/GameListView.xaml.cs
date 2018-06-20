@@ -31,28 +31,26 @@ namespace RealFriend
             {
                 // Console.Out.WriteLine("请求成功~~~~~~~" + content);
                 GameSource = new List<GameDetialedData>();
-                List<OnlineGame> GamesList = JsonConvert.DeserializeObject<List<OnlineGame>>(content);
+                List<GameData> GamesList = JsonConvert.DeserializeObject<List<GameData>>(content);
                 foreach (var game in GamesList)
                 {
                     GameDetialedData gameItem = new GameDetialedData
                     {
-                        GameID = game.id + "",
+                        GameID = game.id,
                         GameName = game.name,
-                        GameImage = "icon.png",
-                        GameInfo = "一起来玩" + game.name + "吧~~~",
-                        PublisherAvatar = "icon.png",
-                        PuiblisherUserName = "bigliam",
-
-                        PlayersList = new List<FriendData>()
-                        {
-                            new FriendData{ UserID = game.id + "1", Avatar = "icon.png", UserName = "acmore"},
-                            new FriendData{ UserID = game.id + "2", Avatar = "icon.png", UserName = "bigliam"},
-                            new FriendData{ UserID = game.id + "3", Avatar = "icon.png", UserName = "xiaoll"},
-                            new FriendData{ UserID = game.id + "4", Avatar = "icon.png", UserName = "Ms.Mao"},
-                            new FriendData{ UserID = game.id + "5", Avatar = "icon.png", UserName = "Boss Han"}
-                        }
-
+                        GameIntro = String.IsNullOrEmpty(game.introduction) ? "一起来玩" + game.name + "吧~~~" : game.introduction,
+                        StartTime = game.start_time,
+                        InitiatorID = game.initiator,
+                        Participants = game.participants
                     };
+                    string[] labels = gameItem.StartTime.Split('T');
+                    string time = labels[0] + " ";
+                    time += labels[1].Split(':')[0] + ":" + labels[1].Split(':')[1];
+                    gameItem.GameDetailLabel = gameItem.GameName + "(开始时间：" + time + ")";
+
+                    // gameImage
+                    Images imgs = new Images();
+                    gameItem.GameImage = imgs.GetImage(gameItem.GameName);
                     GameSource.Add(gameItem);
                 }
             }
@@ -81,8 +79,45 @@ namespace RealFriend
             listView.SelectedItem = null;
             GameDetialedData gameData = (GameDetialedData)e.SelectedItem;
 
-            NavigationPage gameDetail = new NavigationPage(new GameDetail());
-            gameDetail.BindingContext = gameData;
+            List<FriendData> playersList = new List<FriendData>();
+
+            // 获得user列表
+            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(new Uri(url));
+            var content = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                List<UserObject> userObjects = JsonConvert.DeserializeObject<List<UserObject>>(content);
+                foreach (var user in userObjects)
+                {
+                    if (user.id == gameData.InitiatorID)
+                    {
+                        gameData.InitiatorAvatar = user.avatar;
+                        gameData.InitiatorName = user.username;
+                    }
+                    if (gameData.Participants.Contains(user.id))
+                    {
+                        FriendData data = new FriendData
+                        {
+                            Avatar = user.avatar,
+                            UserName = user.username,
+                            UserID = user.id
+                        };
+                        playersList.Add(data);
+                    }
+                }
+            }
+            else
+            {
+                Console.Out.WriteLine("请求失败~~~~~~~");
+                // await DisplayAlert("提示", "StatusCode：" + content + " ", "确定");
+            }
+            client.Dispose();
+            gameData.PlayersList = playersList;
+
+            NavigationPage gameDetail = new NavigationPage(new GameDetail(gameData));
+            // gameDetail.BindingContext = gameData;
             await Navigation.PushModalAsync(gameDetail);
         }
 
@@ -95,20 +130,23 @@ namespace RealFriend
         }
     }
 
-    public class OnlineGame
-    {
-        public int id { set; get; }
-        public string name { set; get; }
-    }
-
     public class GameDetialedData
     {
-        public string GameID { set; get; }
-        public ImageSource GameImage { set; get; }
+        public int GameID { set; get; }
         public string GameName { set; get; }
-        public string GameInfo { set; get; }
+        public int InitiatorID { set; get; }
+        public List<int> Participants { get; set; }
+        public bool Is_private { get; set; }
+        public string StartTime { set; get; }
+        public string Type { set; get; }
+        public string GameIntro { set; get; }
+
+        // GameDetail需要用的结构
+        public string GameDetailLabel { set; get; }
+        public string InitiatorName { set; get; }
+        public ImageSource InitiatorAvatar { get; set; }
         public List<FriendData> PlayersList { set; get; }
-        public string PuiblisherUserName { set; get; }
-        public ImageSource PublisherAvatar { get; set; }
+        public ImageSource GameImage { set; get; }
+
     }
 }
