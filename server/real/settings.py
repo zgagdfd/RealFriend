@@ -26,7 +26,8 @@ SECRET_KEY = '2fb5ffh%)pm(5!yz6es1vop0-%-cpqrzw*ut&k2r02r)7mfx#v'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '116.85.20.132', '139.219.4.146',
-                 'real.chinanorth.cloudapp.chinacloudapi.cn', '42.159.82.209', '40.83.99.39']
+                 'real.chinanorth.cloudapp.chinacloudapi.cn', 
+                 '42.159.82.209', '40.83.99.39', 'real.eastasia.cloudapp.azure.com']
 
 
 # Application definition
