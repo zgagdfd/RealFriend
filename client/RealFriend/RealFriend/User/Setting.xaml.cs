@@ -32,7 +32,7 @@ namespace RealFriend
 
         async void GetInfo()
         {
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/msky";
+            string url = "http://real.eastasia.cloudapp.azure.com/user/msky/";
             string jsonText = await FetchWeatherAsync(url);
             if (!String.IsNullOrEmpty(jsonText))
                 ParseAndDisplay(jsonText);
@@ -56,7 +56,7 @@ namespace RealFriend
             UserObject userObject = GetUserObject();
             var json = JsonConvert.SerializeObject(userObject);
 
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/msky";
+            string url = "http://real.eastasia.cloudapp.azure.com/user/msky/";
 
             client = new HttpClient();
 
@@ -80,7 +80,7 @@ namespace RealFriend
         {
             //JsonText.Text = jsonText;
             UserObject ll = JsonConvert.DeserializeObject<UserObject>(jsonText);
-            UserName.Text = ll.nickname;
+            NickName.Text = ll.nickname;
             UserId.Text = "" + ll.id;
             Gender.Text = ll.gender;
             Signature.Text = ll.signature;
@@ -91,7 +91,7 @@ namespace RealFriend
         private UserObject GetUserObject()
         {
             UserObject user = new UserObject();
-            user.username = UserName.Text;
+            user.username = NickName.Text;
             //user.passwd = Password.Text;
             //user.nickname = NickName.Text;
             user.gender = Gender.Text;

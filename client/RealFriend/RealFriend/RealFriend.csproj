@@ -17,12 +17,30 @@
     <Compile Update="TabbedView.xaml.cs">
       <DependentUpon>TabbedView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="User\FollowerPage.xaml.cs">
+      <DependentUpon>FollowerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="User\FollowerList.xaml.cs">
+      <DependentUpon>FollowerList.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="User\UserDetail2.xaml.cs">
+      <DependentUpon>UserDetail2.xaml</DependentUpon>
+    </Compile>
     <Compile Update="User\UserListView.xaml.cs">
       <DependentUpon>UserListView.xaml</DependentUpon>
     </Compile>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="User\FolloweeList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="User\FolloweePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

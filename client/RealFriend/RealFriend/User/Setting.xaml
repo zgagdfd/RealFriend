@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealFriend.Setting"
-             BackgroundColor="Gray">
+             BackgroundColor="#eeeeee">
     <ContentPage.Content>
         <StackLayout>
             <!--Button
@@ -24,7 +24,8 @@
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
-                    WidthRequest="100"/>
+                    WidthRequest="100"
+                    BackgroundColor="#393e46"/>
                 <Button 
                  x:Name = "SaveButton"
                     FontSize="18"
@@ -34,7 +35,8 @@
                     HorizontalOptions="EndAndExpand" 
                     VerticalOptions="Center"
                     WidthRequest="100"
-                    Clicked ="PostBtnClicked"/>
+                    Clicked ="PostBtnClicked"
+                    BackgroundColor="#393e46"/>
             </StackLayout>
             <Image 
                 x:Name = "HeadImage"
@@ -52,27 +54,27 @@
                     FontSize="16" 
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    TextColor="White" />
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label
                     FontSize="18" 
                     Text="昵称" 
-                    TextColor="White"
+                    TextColor="#393e46"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center" 
                     WidthRequest="100" 
                     Margin="10,5,5,5"/>
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
-                    x:Name="UserName"
-                    TextColor="White" />
+                    x:Name="NickName"
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
                     FontSize="18" 
                     Text="ID" 
-                    TextColor="White"
+                    TextColor="#393e46"
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
@@ -80,13 +82,13 @@
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
                     x:Name="UserId"
-                    TextColor="White" />
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
                     FontSize="18" 
                     Text="性别" 
-                    TextColor="White"
+                    TextColor="#393e46"
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center" 
@@ -94,13 +96,13 @@
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
                     x:Name="Gender"
-                    TextColor="White" />
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
                     FontSize="18"
                     Text="生日" 
-                    TextColor="White" 
+                    TextColor="#393e46" 
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
@@ -108,13 +110,13 @@
                 <Entry 
                     HorizontalOptions="FillAndExpand" 
                     x:Name="Date" 
-                    TextColor="White" />
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
                     FontSize="18" 
                     Text="签名" 
-                    TextColor="White" 
+                    TextColor="#393e46" 
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center" 
@@ -122,13 +124,13 @@
                 <Entry 
                     HorizontalOptions="FillAndExpand"
                     x:Name="Signature" 
-                    TextColor="White" />
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label 
                     FontSize="18"
                     Text="设置" 
-                    TextColor="White"
+                    TextColor="#393e46"
                     Margin="10,5,5,5"
                     HorizontalOptions="Start" 
                     VerticalOptions="Center"
@@ -137,7 +139,7 @@
                 <Entry 
                     HorizontalOptions="EndAndExpand"
                     Text="＞"
-                    TextColor="White" />
+                    TextColor="#393e46" />
             </StackLayout>
             <StackLayout 
                 HeightRequest="100" 
@@ -150,7 +152,8 @@
                     FontSize="26"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" 
-                    TextColor="White" />
+                    TextColor="White"
+                    BackgroundColor="#393e46"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

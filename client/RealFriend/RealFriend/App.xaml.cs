@@ -16,14 +16,14 @@ namespace RealFriend
             // MainPage = new Get();
             IDictionary<string, object> properties = Application.Current.Properties;
 
-            if (!properties.Any())
-            {
-                MainPage = new Login();
-            }
-            else
-            {
-                MainPage = new MainPage();
-            }
+            //if (!properties.Any())
+            //{
+                //MainPage = new Login();
+            //}
+            //else
+            //{
+                MainPage = new UserDetail();
+            //}
 
         }
 
