@@ -1,20 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:RealFriend;assembly=RealFriend"
             x:Class="RealFriend.MessagePage">
-    <ContentPage
-        Title="系统通知">
-        <ContentPage.Content>
-            <StackLayout
-                Orientation="Vertical">
-                <local:MessageListView/>
-                <local:TabbedView
-                    VerticalOptions="EndAndExpand"/>
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>
-    <ContentPage
+    
+    <!--<ContentPage
         Title="好友通知">
         <ContentPage.Content>
             <StackLayout
@@ -24,13 +14,13 @@
                     VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </ContentPage.Content>
-    </ContentPage>
+    </ContentPage>-->
     <ContentPage
         Title="活动通知">
         <ContentPage.Content>
             <StackLayout
                 Orientation="Vertical">
-                <local:MessageListView/>
+                <local:ActivityMessageListView/>
                 <local:TabbedView
                     VerticalOptions="EndAndExpand"/>
             </StackLayout>
@@ -38,6 +28,17 @@
     </ContentPage>
     <ContentPage
         Title="互动通知">
+        <ContentPage.Content>
+            <StackLayout
+                Orientation="Vertical">
+                <local:GameMessageListView/>
+                <local:TabbedView
+                    VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage
+        Title="系统通知">
         <ContentPage.Content>
             <StackLayout
                 Orientation="Vertical">

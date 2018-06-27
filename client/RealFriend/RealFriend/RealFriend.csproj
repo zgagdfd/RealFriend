@@ -23,6 +23,12 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Message\GameMessageListView.xaml.cs">
+      <DependentUpon>GameMessageListView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Remove="Message\MessageListView %28copy%29.xaml" />
+  </ItemGroup>
 </Project>
