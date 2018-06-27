@@ -10,6 +10,10 @@ namespace RealFriend.User
         // 32位MD5加密
         public static string GetMD5(string password)
         {
+            if(String.IsNullOrEmpty(password))
+            {
+                return "";
+            }
             MD5 md5 = new MD5CryptoServiceProvider();
             byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
             StringBuilder sb = new StringBuilder(32);

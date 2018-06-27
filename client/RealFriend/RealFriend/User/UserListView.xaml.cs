@@ -26,7 +26,7 @@ namespace RealFriend
         private List<UserData> LoadData()
         {
             List<UserData> list = new List<UserData>();
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/msky/followees/";
+            string url = "http://real.eastasia.cloudapp.azure.com/user/msky/followees/";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(url).Result;
             string statusCode = response.StatusCode.ToString();

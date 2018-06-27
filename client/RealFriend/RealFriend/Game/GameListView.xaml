@@ -37,7 +37,10 @@
                                             Text="{Binding GameName}"
                                             FontSize="20"
                                             FontAttributes="Bold"
-                                            VerticalOptions="StartAndExpand"/>
+                                            VerticalOptions="StartAndExpand"
+                                            >
+                                            
+                                        </Label>
                                         <Label
                                             Text="{Binding GameIntro}"
                                             FontSize="13"
@@ -50,8 +53,12 @@
                                         Clicked="JoinGameBtnClicked"
                                         Text="加入游戏"
                                         FontSize="15"
+                                        CornerRadius="4"
                                         HorizontalOptions="EndAndExpand"
-                                        VerticalOptions="Center"/>
+                                        VerticalOptions="Center"
+                                        BackgroundColor="LightGray"/>
+
+
                                 </StackLayout>
                             </Frame>
                         </ContentView>

@@ -32,7 +32,7 @@ namespace RealFriend
 
         async void GetInfo()
         {
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/msky";
+            string url = "http://real.eastasia.cloudapp.azure.com/user/msky";
             string jsonText = await FetchWeatherAsync(url);
             if (!String.IsNullOrEmpty(jsonText))
                 ParseAndDisplay(jsonText);
@@ -56,7 +56,7 @@ namespace RealFriend
             UserObject userObject = GetUserObject();
             var json = JsonConvert.SerializeObject(userObject);
 
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/msky";
+            string url = "http://real.eastasia.cloudapp.azure.com/user/msky";
 
             client = new HttpClient();
 

@@ -16,11 +16,27 @@ namespace RealFriend
         public Login()
         {
             InitializeComponent();
+            
+            Init();
+        }
+
+        void Init()
+        {
+            BackgroundImage = "login_bac.jpg";
+
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += async (s, e) =>
+            {
+                await DisplayAlert("提示", "敬请期待~~~", "确定");
+            };
+            Icon_QQ.GestureRecognizers.Add(tapGestureRecognizer);
+            Icon_weixin.GestureRecognizers.Add(tapGestureRecognizer);
+            Icon_xinlang.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
         private void LoginBtnClicked(object sender, EventArgs e)
         {
-            string username = AccountEntry.Text.Trim();
+            string username = AccountEntry.Text;
             string password = PasswordEntry.Text;
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
                 return;
@@ -30,7 +46,7 @@ namespace RealFriend
         // 校验账号密码
         async void CheckPass(string username, string pwd)
         {
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/" + username;
+            string url = "http://real.eastasia.cloudapp.azure.com/user/" + username;
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();
