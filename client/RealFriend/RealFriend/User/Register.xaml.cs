@@ -85,8 +85,13 @@ namespace RealFriend
             user.gender = Gender.SelectedItem.Equals("男") ? "boy" : "girl";
             user.email = Email.Text;
             user.phone = phoneNum;
-            UserAvatars avatars = new UserAvatars();
-            user.avatar = avatars.GetAvatar();
+            if (String.IsNullOrEmpty(Avatar.Text))
+            {
+                UserAvatars avatars = new UserAvatars();
+                user.avatar = avatars.GetAvatar();
+            }
+            else
+                user.avatar = Avatar.Text;
             user.signature = Signature.Text;
             return user;
         }
