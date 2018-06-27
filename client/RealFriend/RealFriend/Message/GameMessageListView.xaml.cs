@@ -15,14 +15,14 @@ namespace RealFriend
         {
             InitializeComponent();
             gameMessageListView.ItemsSource = LoadMessageData();
-            GameDetialedData random_game = get_a_game();
+            GameDetailedData random_game = get_a_game();
             gameMessageListView.ItemTapped += async (sender, args) => {
                 await Navigation.PushModalAsync(new GameDetail(random_game));
             };
         }
 
 
-        private GameDetialedData get_a_game()
+        private GameDetailedData get_a_game()
         {
             // 获得game列表
             string url = "http://real.eastasia.cloudapp.azure.com/game";
@@ -38,7 +38,7 @@ namespace RealFriend
              client = new HttpClient();
             response = client.GetAsync(url).Result;
             content = response.Content.ReadAsStringAsync().Result;
-            GameDetialedData gameData = new GameDetialedData();
+            GameDetailedData gameData = new GameDetailedData();
             gameData.Type = game_temp.type;
             gameData.GameName = game_temp.name;
             gameData.GameID = game_temp.id;
