@@ -14,12 +14,13 @@ namespace RealFriend
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameDetail : ContentPage
     {
-        GameDetialedData Data;
+        GameDetailedData Data;
 
-        public GameDetail(GameDetialedData gameData)
+        public GameDetail(GameDetailedData gameData)
         {
             Data = gameData;
             InitializeComponent();
+            BackgroundColor = Color.FromHex("#EEEEEE");
             BindingContext = Data;
         }
 
@@ -42,7 +43,7 @@ namespace RealFriend
 
             // put 更新
             GameData data = null;
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/game/" + Data.GameID;
+            string url = "http://real.eastasia.cloudapp.azure.com/game/" + Data.GameID;
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();

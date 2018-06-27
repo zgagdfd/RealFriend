@@ -15,31 +15,30 @@ using Xamarin.Forms.Xaml;
 namespace RealFriend
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserListView : ContentView
+    public partial class FolloweeList : ContentView
     {
-        public UserListView()
+        public FolloweeList()
         {
             InitializeComponent();
-            friendlistView.ItemsSource = LoadData();
+            followeeList.ItemsSource = LoadData();
         }
 
-        private List<UserData> LoadData()
+        private List<FolloweeData> LoadData()
         {
-            List<UserData> list = new List<UserData>();
-            string url = "http://real.eastasia.cloudapp.azure.com/user/";
-
+            List<FolloweeData> list = new List<FolloweeData>();
+            string url = "http://real.eastasia.cloudapp.azure.com/user/msky/followees/";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(url).Result;
             string statusCode = response.StatusCode.ToString();
             if (response.IsSuccessStatusCode)
             {
                 string result = response.Content.ReadAsStringAsync().Result;
-                List<Friend> msky = JsonConvert.DeserializeObject<List<Friend>>(result);
-                foreach (Friend item in msky)
+                List<Followee> msky = JsonConvert.DeserializeObject<List<Followee>>(result);
+                foreach (Followee item in msky)
                 {
                     //头像链接暂时API未提供，  title不需要，api需给出发送者姓名，先暂时用type代替显示
                     String imageUrl2 = "http://image.tupian114.com/20140417/09122960.png";
-                    UserData data = new UserData(item.nickname, item.avatar, item.signature, imageUrl2);
+                    FolloweeData data = new FolloweeData(item.nickname, item.avatar, item.signature, imageUrl2);
                     list.Add(data);
                 }
             }
@@ -47,10 +46,10 @@ namespace RealFriend
         }
     }
 
-    public class UserData
+    public class FolloweeData
     {
 
-        public UserData(string nickname, String avatar, String signature, String imageUrl2)
+        public FolloweeData(string nickname, String avatar, String signature, String imageUrl2)
         {
 
             Username = nickname;
@@ -66,7 +65,7 @@ namespace RealFriend
         public String ImageUrl { get; private set; }
         public String ImageUrl2 { get; private set; }
     }
-    public class Friend
+    public class Followee
     {
 
         public string nickname { get; set; }

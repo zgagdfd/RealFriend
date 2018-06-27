@@ -18,6 +18,7 @@ namespace RealFriend.Game
         public GamePublish()
         {
             InitializeComponent();
+            BackgroundColor = Color.FromHex("#EEEEEE");
             BindingContext = new GamePublishViewModel();
         }
 
@@ -34,7 +35,7 @@ namespace RealFriend.Game
             {
                 // 传输数据
                 var json = JsonConvert.SerializeObject(gameData);
-                string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/game/create";
+                string url = "http://real.eastasia.cloudapp.azure.com/game/create";
 
                 client = new HttpClient();
 
@@ -97,7 +98,7 @@ namespace RealFriend.Game
 
         async Task<int> GetID(string username)
         {
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/" + username;
+            string url = "http://real.eastasia.cloudapp.azure.com/user/" + username;
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();

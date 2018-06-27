@@ -27,7 +27,7 @@ namespace RealFriend.Game
         {
             SelectedData = new List<SelectableData<FriendData>>();
             // 获得user列表
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user";
+            string url = "http://real.eastasia.cloudapp.azure.com/user";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();

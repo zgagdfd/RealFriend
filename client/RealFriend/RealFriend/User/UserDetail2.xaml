@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RealFriend;assembly=RealFriend"
-            x:Class="RealFriend.UserDetail"
+            x:Class="RealFriend.UserDetail2"
             BackgroundColor="#eeeeee">
     <ContentPage.Content>
         <StackLayout
@@ -86,6 +86,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button
+                    x:Name="Activity"
                     Text="活动"
                     Margin="0,0,0,0"
                     FontSize="20"
@@ -108,10 +109,10 @@
                     BackgroundColor="#00adb5"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <local:ActivityListView
-                 />
-                <!--local:GameListView
+                <!--local:ActivityListView
                  /-->
+                <local:GameListView
+                 />
             </StackLayout>
             <local:TabbedView
                     VerticalOptions="EndAndExpand"

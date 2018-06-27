@@ -30,9 +30,17 @@
                 <Button
                     Text="分  享"
                     Clicked="ShareGameBtnClicked"
-                    FontSize="16"
-                    HorizontalOptions="EndAndExpand"
-                    />
+                    FontSize="Medium"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="EndAndExpand">
+                    <Button.TextColor>
+                        <Color x:FactoryMethod="FromHex">
+                            <x:Arguments>
+                                <x:String>#00ADB5</x:String>
+                            </x:Arguments>
+                        </Color>
+                    </Button.TextColor>
+                </Button>
 
             </StackLayout>
 
@@ -67,9 +75,11 @@
 
                 <Button
                     Clicked="GameBeginBtnClicked"
-                    Text="立即加入"
+                    Text="  立即加入  "
                     FontSize="15"
                     VerticalOptions="Center"
+                    BackgroundColor="LightGray"
+                    CornerRadius="4"
                     HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
@@ -100,7 +110,7 @@
                                     WidthRequest="60"
                                     HeightRequest="60"
                                     Source="{Binding Avatar}"
-                                    Aspect="AspectFill"
+                                    Aspect="AspectFit"
                                     VerticalOptions="Center"/>
                             </Grid>
                         </DataTemplate>

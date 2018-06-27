@@ -1,10 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="RealFriend.Register">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <Color x:FactoryMethod="FromHex">
+                            <x:Arguments>
+                                <x:String>#EEEEEE</x:String>
+                            </x:Arguments>
+                        </Color>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="CornerRadius" Value="14" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="WidthRequest" Value="230" />
+            </Style>
+
+            <Style TargetType="Image">
+                <Setter Property="HeightRequest" Value="30" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout 
-            HorizontalOptions="Center">
+        <StackLayout HorizontalOptions="Center">
 
             <StackLayout 
                 x:Name="PhoneStackLayout"
@@ -12,6 +37,7 @@
                 IsVisible="True"
                 Spacing="10">
 
+                <!--占位-->
                 <StackLayout x:Name="PosLayout"
                              Orientation="Vertical">
                     <Label/>
@@ -21,26 +47,31 @@
                     <Label/>
                 </StackLayout>
 
-
-                <Label 
-                    Text="注         册"
-                    HorizontalOptions="Center"
-                    FontSize="36"/>
+                <Label Text="注         册"
+                       HorizontalOptions="Center"
+                       FontSize="36"/>
 
                 <Label/>
 
-                <Label 
-                    Text="手机注册登录有助于您快速找到好友" 
-                    FontSize="12" 
-                    HorizontalOptions="Center"/>
+                <Label Text="手机注册登录有助于您快速找到好友" 
+                       FontSize="12" 
+                       HorizontalOptions="Center"/>
 
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
 
-                <Entry 
-                    x:Name="PhoneNumEntry"
-                    Placeholder="请输入11位手机号码" 
-                    TextChanged="CheckPhoneNum"
-                    Keyboard="Numeric"
-                    HorizontalOptions="FillAndExpand"/>
+                    <Image Source="phone.png"/>
+
+                    <Entry x:Name="PhoneNumEntry"
+                           Placeholder="请输入11位手机号码"
+                           VerticalOptions="End"
+                           TextChanged="CheckPhoneNum"
+                           WidthRequest="230"
+                           Keyboard="Numeric"/>
+
+                </StackLayout>
 
                 <StackLayout 
                     x:Name="VeriCodeStackLayout" 
@@ -56,6 +87,7 @@
 
                     <Button 
                         x:Name="SendCodeBtn"
+                        CornerRadius="10"
                         Text="发送验证码"
                         HorizontalOptions="EndAndExpand"
                         Clicked="SendCodeBtnClicked"
@@ -63,8 +95,7 @@
 
                 </StackLayout>
 
-                <StackLayout 
-                    Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
 
                     <Button 
                         x:Name="NextBtn"
@@ -82,9 +113,7 @@
                         Clicked="CancelRegisterBtnClicked"
                         HorizontalOptions="FillAndExpand"
                         Margin="5"/>
-
                 </StackLayout>
-
             </StackLayout>
 
 
@@ -92,58 +121,67 @@
                 x:Name="InfoStackLayout"
                 Orientation="Vertical"
                 IsVisible="False"
-                Spacing="10">
+                Spacing="12">
 
+                <!--占位-->
                 <StackLayout x:Name="PosLayout1"
-                         Orientation="Vertical">
-
+                             Orientation="Vertical">
                     <Label/>
                     <Label/>
                 </StackLayout>
 
+                <!--用户名-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
 
-                <StackLayout
-                    Orientation="Horizontal">
-                    <Label 
-                        Text=" 用 户 名  "
-                        FontSize="18"
-                        VerticalOptions="Center"/>
-                    <Entry 
-                        x:Name="UserName"  
+                    <Image Source="account.png"/>
+
+                    <Entry
+                        x:Name="UserName" 
                         Keyboard="Text"
-                        WidthRequest="230"/>
+                        Placeholder="Username"/>
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Horizontal">
-                    <Label Text=" 密      码  "
-                           VerticalOptions="Center"
-                           FontSize="18"/>
-                    <Entry 
-                        x:Name="Password" 
+                <!--密码-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
+
+                    <Image Source="password.png"/>
+
+                    <Entry
+                        x:Name="Password"
                         IsPassword="True"
-                        HorizontalOptions="FillAndExpand"/>
+                        Placeholder="Password"/>
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Horizontal">
-                    <Label Text=" 昵      称  "
-                           VerticalOptions="Center"
-                           FontSize="18"/>
-                    <Entry 
+                <!--昵称-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
+
+                    <Image Source="nickname.png"/>
+
+                    <Entry
                         x:Name="NickName" 
-                        HorizontalOptions="FillAndExpand"/>
+                        Placeholder="Nickname"/>
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Horizontal">
-                    <Label Text=" 性      别  "
-                           FontSize="18"
-                           VerticalOptions="Center"/>
+                <!--性别-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
+
+                    <Image Source="gender.png"/>
 
                     <Picker x:Name="Gender"
                             Title="选择性别"
-                            HorizontalOptions="FillAndExpand">
+                            WidthRequest="230">
 
                         <Picker.Items>
                             <x:String>男</x:String>
@@ -156,48 +194,52 @@
                     </Picker>
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Horizontal">
-                    <Label Text=" 邮      箱  "
-                           FontSize="18"
-                           VerticalOptions="Center"/>
-                    <Entry 
-                        x:Name="Email"
-                        HorizontalOptions="FillAndExpand"
+                <!--邮箱-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
+
+                    <Image Source="email.png"/>
+
+                    <Entry
+                        x:Name="Email" 
+                        Placeholder="Email"
                         Keyboard="Email"/>
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Horizontal">
-                    <Label Text=" 头      像  "
-                           FontSize="18"
-                           VerticalOptions="Center"/>
-                    <Entry 
+                <!--头像-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
+
+                    <Image Source="avatar.png"/>
+
+                    <Entry
                         x:Name="Avatar" 
-                        HorizontalOptions="FillAndExpand"
-                        Placeholder="URL"
-                        Keyboard="Url"
-                        InputTransparent="True"/>
+                        Placeholder="Avatar URL"
+                        Keyboard="Url"/>
                 </StackLayout>
 
-                <StackLayout
-                    Orientation="Horizontal">
+                <!--个性签名-->
+                <StackLayout 
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Spacing="5">
 
-                    <Label Text=" 签      名  "
-                           FontSize="18"
-                           VerticalOptions="Center"/>
+                    <Image Source="signature.png"/>
 
-                    <Editor 
-                        x:Name="Signature" 
-                        Keyboard="Chat"
-                        HorizontalOptions="FillAndExpand"
-                        HeightRequest="80"/>
+                    <Editor x:Name="Signature" 
+                            Keyboard="Chat"
+                            HeightRequest="80"
+                            WidthRequest="230"
+                        />
                 </StackLayout>
-
-                <Label/>
 
                 <Button Clicked="RegisterBtnClicked"
-                        Text="注    册"/>
+                        Text="注    册"
+                        FontSize="20"/>
             </StackLayout>
 
         </StackLayout>

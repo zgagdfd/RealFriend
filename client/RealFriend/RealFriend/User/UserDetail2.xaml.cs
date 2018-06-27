@@ -12,10 +12,10 @@ using Xamarin.Forms.Xaml;
 namespace RealFriend
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UserDetail : ContentPage
+	public partial class UserDetail2 : ContentPage
 	{
         HttpClient client;
-        public UserDetail()
+        public UserDetail2()
         {
             InitializeComponent();
             SettingBtn.Clicked += async (sender, args) =>
@@ -30,9 +30,9 @@ namespace RealFriend
             {
                 await Navigation.PushModalAsync(new FollowerPage());
             };
-            Game.Clicked += async (sender, args) =>
+            Activity.Clicked += async (sender, args) =>
             {
-                await Navigation.PushModalAsync(new UserDetail2());
+                await Navigation.PushModalAsync(new UserDetail());
             };
             GetInfo();
         }
@@ -42,7 +42,6 @@ namespace RealFriend
         async void GetInfo()
         {
             string url = "http://real.eastasia.cloudapp.azure.com/user/msky/";
-
             string jsonText = await FetchWeatherAsync(url);
             if (!String.IsNullOrEmpty(jsonText))
                 ParseAndDisplay(jsonText);

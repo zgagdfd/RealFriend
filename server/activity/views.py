@@ -7,7 +7,7 @@ from .serializers import ActivitySerializer, CommentSerializer
 
 
 class ActivityList(generics.ListAPIView):
-    queryset = Activity.objects.order_by('create_time')[::-1]
+    queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
 
 
