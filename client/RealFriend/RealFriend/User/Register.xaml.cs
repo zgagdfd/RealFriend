@@ -17,6 +17,7 @@ namespace RealFriend
         public Register()
         {
             InitializeComponent();
+            BackgroundImage = "login_bac.jpg";
         }
 
         async void CancelRegisterBtnClicked(object sender, EventArgs e)
@@ -44,7 +45,12 @@ namespace RealFriend
         async void RegisterBtnClicked(object sender, EventArgs e)
         {
             UserObject userData = GetUserObject();
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/";
+            if (String.IsNullOrEmpty(userData.username))
+            {
+                await DisplayAlert("提示", "用户名不能为空", "确定");
+                return;
+            }
+            string url = "http://real.eastasia.cloudapp.azure.com/user/";
             HttpClient client = new HttpClient();
             HttpResponseMessage responseMessage = await client.GetAsync(new Uri(url + userData.username));
 
@@ -73,15 +79,20 @@ namespace RealFriend
         private UserObject GetUserObject()
         {
             UserObject user = new UserObject();
-            user.username = UserName.Text.Trim();
+            user.username = UserName.Text;
             user.passwd = Utils.GetMD5(Password.Text);
-            user.nickname = NickName.Text.Trim();
+            user.nickname = NickName.Text;
             user.gender = Gender.SelectedItem.Equals("男") ? "boy" : "girl";
-            user.email = Email.Text.Trim();
-            user.phone = phoneNum.Trim();
-            UserAvatars avatars = new UserAvatars();
-            user.avatar = avatars.GetAvatar();
-            user.signature = Signature.Text.Trim();
+            user.email = Email.Text;
+            user.phone = phoneNum;
+            if (String.IsNullOrEmpty(Avatar.Text))
+            {
+                UserAvatars avatars = new UserAvatars();
+                user.avatar = avatars.GetAvatar();
+            }
+            else
+                user.avatar = Avatar.Text;
+            user.signature = Signature.Text;
             return user;
         }
 

@@ -58,6 +58,7 @@ namespace RealFriend
 
             string url = "http://real.eastasia.cloudapp.azure.com/user/msky/";
 
+
             client = new HttpClient();
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");

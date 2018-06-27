@@ -12,29 +12,30 @@ namespace RealFriend
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameListView : ContentView
     {
-        public List<GameDetialedData> GameSource { get; set; }
+        public List<GameDetailedData> GameSource { get; set; }
 
         public GameListView()
         {
             InitializeComponent();
+            BackgroundColor = Color.FromHex("#EEEEEE");
             LoadData();
         }
 
         async void LoadData()
         {
             // 获得game列表
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/game";
+            string url = "http://real.eastasia.cloudapp.azure.com/game";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
                 // Console.Out.WriteLine("请求成功~~~~~~~" + content);
-                GameSource = new List<GameDetialedData>();
+                GameSource = new List<GameDetailedData>();
                 List<GameData> GamesList = JsonConvert.DeserializeObject<List<GameData>>(content);
                 foreach (var game in GamesList)
                 {
-                    GameDetialedData gameItem = new GameDetialedData
+                    GameDetailedData gameItem = new GameDetailedData
                     {
                         GameID = game.id,
                         GameName = game.name,
@@ -77,12 +78,12 @@ namespace RealFriend
             }
             ListView listView = (ListView)sender;
             listView.SelectedItem = null;
-            GameDetialedData gameData = (GameDetialedData)e.SelectedItem;
+            GameDetailedData gameData = (GameDetailedData)e.SelectedItem;
 
             List<FriendData> playersList = new List<FriendData>();
 
             // 获得user列表
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user";
+            string url = "http://real.eastasia.cloudapp.azure.com/user";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url));
             var content = await response.Content.ReadAsStringAsync();
@@ -130,7 +131,7 @@ namespace RealFriend
         }
     }
 
-    public class GameDetialedData
+    public class GameDetailedData
     {
         public int GameID { set; get; }
         public string GameName { set; get; }

@@ -38,7 +38,7 @@ namespace RealFriend
 
         private async Task GetPwdAsync(string acc)
         {
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/user/";
+            string url = "http://real.eastasia.cloudapp.azure.com/user/";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(url + acc));
             var content = await response.Content.ReadAsStringAsync();

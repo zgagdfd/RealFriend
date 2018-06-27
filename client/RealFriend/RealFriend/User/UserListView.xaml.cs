@@ -27,6 +27,7 @@ namespace RealFriend
         {
             List<UserData> list = new List<UserData>();
             string url = "http://real.eastasia.cloudapp.azure.com/user/";
+
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(url).Result;
             string statusCode = response.StatusCode.ToString();

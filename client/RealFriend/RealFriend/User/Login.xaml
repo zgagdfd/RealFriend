@@ -2,46 +2,65 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealFriend.Login">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <Color x:FactoryMethod="FromHex">
+                            <x:Arguments>
+                                <x:String>#EEEEEE</x:String>
+                            </x:Arguments>
+                        </Color>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="CornerRadius" Value="14" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="WidthRequest" Value="230" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center">
 
-            <Label
-                Text="登           录"
-                HorizontalOptions="Center" 
-                FontSize="36" 
-                VerticalOptions="Start" 
-                Margin="20"/>
+            <Image Source="logo.png"
+                   HeightRequest="150"
+                   HorizontalOptions="Center"/>
 
             <StackLayout 
                 Orientation="Horizontal"
-                HorizontalOptions="FillAndExpand" >
-                <Label 
-                    Text="账        号" 
-                    VerticalOptions="Center"
-                    Margin="15"
-                    FontSize="18"/>
+                HorizontalOptions="Center"
+                Spacing="5"
+                >
+                <Image Source="account.png"
+                       HeightRequest="30"
+                       />
+
                 <Entry
                     x:Name="AccountEntry" 
-                    Placeholder="Username"
-                    WidthRequest="230"/>
+                    Placeholder="Username"/>
+
             </StackLayout>
 
             <StackLayout 
-                Orientation="Horizontal" 
-                HorizontalOptions="FillAndExpand">
-                <Label 
-                    Text="密        码"
-                    VerticalOptions="Center"
-                    FontSize="18"
-                    Margin="15"/>
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                Spacing="5">
+
+                <Image Source="password.png"
+                       HeightRequest="30"
+                       />
 
                 <Entry 
                     x:Name="PasswordEntry"
                     Placeholder="Password"
                     IsPassword="True"
-                    WidthRequest="230"
                     />
 
             </StackLayout>
@@ -52,51 +71,65 @@
                 FontSize="20"
                 HorizontalOptions="Fill"
                 Clicked="LoginBtnClicked"
-                WidthRequest="300"/>
-
-
-            <Label 
-                Text="Or" 
-                FontAttributes="Bold" 
-                FontSize="20" 
-                HorizontalOptions="Center"/>
-
-            <Label 
-                Text="其他登录方式" 
-                HorizontalOptions="Center"
-                TextColor="Blue"
-                Margin="10"/>
-
-            <StackLayout
-                Orientation="Horizontal" 
-                HorizontalOptions="Center">
-                <Label Text="QQ登录"/>
-                <Label Text="微信登录"/>
-                <Label Text="微博登录"/>
-            </StackLayout>
-
-            <Label/>
-            <Label/>
+                />
 
             <StackLayout 
-                Orientation="Horizontal"  
-                Margin="20">
+                Orientation="Horizontal">
 
                 <Button 
                     x:Name="ForgetPwdBtn" 
-                    Text="忘记密码" 
+                    Text="忘记密码?" 
                     HorizontalOptions="StartAndExpand" 
-                    WidthRequest="100"
+                    BackgroundColor="Transparent"
+                    FontSize="Default"
+                    TextColor="DarkGray"
                     Clicked="ForgetPwdBtnClicked"/>
 
                 <Button  
                     x:Name="RegisterBtn" 
-                    Text="注    册" 
+                    Text="没有帐号？注册"
+                    TextColor="DarkGray"
+                    FontSize="Default"
                     HorizontalOptions="EndAndExpand"
-                    WidthRequest="100"
-                    Clicked="RegisterBtnClicked"/>
+                    Clicked="RegisterBtnClicked"
+                    BackgroundColor="Transparent"/>
             </StackLayout>
 
+
+            <StackLayout x:Name="ThirdParty"
+                         Orientation="Vertical"
+                         Spacing="15"
+                         >
+
+                <Label/>
+
+                <Label x:Name="ThirdPartyLabel"
+                       Text="  第三方登录  "
+                       FontSize="Default"
+                       TextColor="DarkGray"
+                       HorizontalOptions="Center"
+                       />
+
+                <StackLayout
+                    Orientation="Horizontal" 
+                    HorizontalOptions="Center"
+                    HeightRequest="36"
+                    Spacing="50">
+
+                    <Image x:Name="Icon_QQ"
+                           Source="qq.png"
+                           />
+
+                    <Image x:Name="Icon_weixin"
+                           Source="weixin.png"
+                           />
+
+                    <Image x:Name="Icon_xinlang"
+                           Source="weibo.png"
+                           />
+
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

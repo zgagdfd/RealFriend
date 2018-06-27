@@ -23,7 +23,7 @@ namespace RealFriend
         private List<MessageData> LoadMessageData()
         {
             List<MessageData> list = new List<MessageData>();
-            string url = "http://real.chinanorth.cloudapp.chinacloudapi.cn/message";
+            string url = "http://real.eastasia.cloudapp.azure.com/message";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.GetAsync(url).Result;
             string statusCode = response.StatusCode.ToString();

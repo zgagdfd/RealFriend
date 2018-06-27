@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RealFriend.Game.PublishHelp">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
             <Button Text="Publish"
                     Clicked="PublishBtnClicked"/>
         </StackLayout>
