@@ -2198,8 +2198,26 @@ namespace RealFriend.Droid
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
+			// aapt resource value: 0x7f02011e
+			public const int avd_hide_password_1 = 2130837790;
+			
+			// aapt resource value: 0x7f02011f
+			public const int avd_hide_password_2 = 2130837791;
+			
+			// aapt resource value: 0x7f020120
+			public const int avd_hide_password_3 = 2130837792;
+			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
+			
+			// aapt resource value: 0x7f020121
+			public const int avd_show_password_1 = 2130837793;
+			
+			// aapt resource value: 0x7f020122
+			public const int avd_show_password_2 = 2130837794;
+			
+			// aapt resource value: 0x7f020123
+			public const int avd_show_password_3 = 2130837795;
 			
 			// aapt resource value: 0x7f020057
 			public const int design_bottom_navigation_item_background = 2130837591;
